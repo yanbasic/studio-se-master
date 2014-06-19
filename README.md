@@ -21,7 +21,9 @@ The list of repositories handled by this gitslave repo can be found in the file 
 All Gitslave command are available hre : http://gitslave.sourceforge.net/gits-man-page.html
 
 if you want to dowload (clone) all slave studio repositories, use the command
-     gits populate --with-ifpresent
+        
+        gits populate --with-ifpresent
 
-should you want to dowload a set of slave repositories, use
-     gits populate <name_of_the_repos1> <name_of_the_repos2>
+should you want to download a set of slave repositories, use
+
+         gits populate <name_of_the_repos1> <name_of_the_repos2>
