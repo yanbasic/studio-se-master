@@ -1,17 +1,17 @@
-Studio-full-master
+Studio-se-master
 ==========
 
-Master repos using gitslave for aggregating the full Talend Studio source repositories
+Master repos using gitslave for aggregating the full Talend Studio open source repositories
 
 This folder is a GitSlave root folder.
-It is a simple git repo but allows to work with all Talend Studio repositories as slaves.
+It is a simple git repo but allows working with all Talend Studio open source repositories as slaves.
 
 Install GitSlave
 ================
-GitSlave is the tool you can use to perfom multi-repo command, in order to use it to its full potential please
+GitSlave is the tool you can use to perform multi-repo command, in order to use it to its full potential please
 install : 
 * perl 
-* clone this repostitory locally if not already done.
+* clone this repository locally if not already done.
 * move the folder tools/gitslave-2.0.2 to you own user folders.
 * Then you can make an alias to the main script called "gits" (use gits_for_mac if you are on a mac).
 
