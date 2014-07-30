@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.talend.studio</groupId>
+  <artifactId>tos</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>talend.studio.parent.pom</module>
+	<module>../tbd-studio-se</module>
+    <module>../tcommon-studio-se</module>
+    <module>../tdi-studio-se</module>
+    <module>../tdq-studio-se</module>
+    <module>../tesb-studio-se</module>
+    <module>../tmdm-common</module>
+    <module>../tmdm-studio-se</module>
+    <module>../toem-studio-se</module>
+  </modules>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>0.21.0</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
