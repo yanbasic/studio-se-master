@@ -6,3 +6,5 @@
 /tmdm-studio-se/
 /toem-studio-se/
 /tmdm-common/
+build.log
+build*.bat
