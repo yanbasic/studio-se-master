@@ -24,7 +24,7 @@
    <windowImages i16="/org.talend.rcp/icons/appli_16x16.gif" i32="/org.talend.rcp/icons/appli_32x32.gif" i48="/org.talend.rcp/icons/appli_48x48.gif"/>
 
    <splash
-      location="org.talend.rcp"
+      location="org.talend.rcp.branding.tos"
       startupProgressRect="7,188,441,20"
       startupMessageRect="7,168,441,20"
       startupForegroundColor="FFFFFF" />
@@ -55,6 +55,9 @@
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" />
+	  <property name="file.encoding" value="UTF-8" />
+	  <property name="osgi.bundlefile.limit" value="200" />
+	  <property name="talend.studio.version" value="5.6.0.${buildQualifier}" />
    </configurations>
 
 </product>
