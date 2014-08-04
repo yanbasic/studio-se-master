@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="%productName" uid="org.talend.studio.tos.di.product" id="org.talend.rcp.branding.tos.product" application="org.talend.rcp.branding.tos.application" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="icons/about.jpg"/>
+      <text>
+         %productBlurb
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+      <linux>/org.talend.studio.tos.di.product/config.ini</linux>
+      <macosx>/org.talend.studio.tos.di.product/config.ini</macosx>
+      <solaris>/org.talend.studio.tos.di.product/config.ini</solaris>
+      <win32>/org.talend.studio.tos.di.product/config.ini</win32>
+   </configIni>
+
+   <launcherArgs>
+      <vmArgs>-Xms40m -Xmx500m -XX:MaxPermSize=128m</vmArgs>
+   </launcherArgs>
+
+   <windowImages i16="/org.talend.rcp/icons/appli_16x16.gif" i32="/org.talend.rcp/icons/appli_32x32.gif" i48="/org.talend.rcp/icons/appli_48x48.gif"/>
+
+   <splash
+      location="org.talend.rcp"
+      startupProgressRect="7,188,441,20"
+      startupMessageRect="7,168,441,20"
+      startupForegroundColor="FFFFFF" />
+   <launcher name="TOS_DI">
+      <linux icon="/org.talend.rcp/icons/appli_48x48.xpm"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="/org.talend.rcp/icons/designer.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <intro introId="org.talend.rcp.intro"/>
+
+   <vm>
+   </vm>
+
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.equinox.executable"/>
+      <feature id="org.talend.rcp.branding.tos_feature"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" />
+   </configurations>
+
+</product>
