@@ -12,6 +12,15 @@
   <packaging>eclipse-repository</packaging>
 
   <build>
+	<resources>
+        <resource>
+            <directory>.</directory>
+            <includes>
+				<include>talend.product</include>
+            </includes>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
