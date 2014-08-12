@@ -29,7 +29,6 @@
 	<profiles>
 		<profile>
 			<id>talend.tos.products</id>
-			<activation><activeByDefault>true</activeByDefault></activation>
 			<modules>
 				<module>talend.studio.tos.di.product</module>
 			</modules>
