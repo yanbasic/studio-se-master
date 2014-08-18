@@ -11,7 +11,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tycho.version>0.21.0</tycho.version>
 		<tycho-extras.version>0.21.0</tycho-extras.version>
-		<talend-repo.url>http://newbuild.talend.com/targetplatform/5.6/20140725</talend-repo.url>
+		<talend-repo.url>http://newbuild.talend.com/builds/targetplatform/5.6/20140814</talend-repo.url>
+		<babel-repo.url>http://newbuild.talend.com/builds/targetplatform/babel/</babel-repo.url>
 	</properties>
 
 	<distributionManagement>
@@ -27,6 +28,11 @@
 		<repository>
 			<id>talend_repo</id>
 			<url>${talend-repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>babel_repo</id>
+			<url>${babel-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>  
@@ -139,6 +145,7 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<strictBinIncludes>false</strictBinIncludes>
+					<format>yyyyMMdd'_'HHmm</format>
 				</configuration>
 			</plugin>      
 		</plugins>
