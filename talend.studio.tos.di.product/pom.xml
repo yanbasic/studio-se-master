@@ -108,7 +108,7 @@
 								<artifactItem>
 									<groupId>org.talend.studio</groupId>
 									<artifactId>binaries</artifactId>
-									<version>5.6.0</version>
+									<version>3.6.1</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 									<outputDirectory>${studio.dir}</outputDirectory>
@@ -116,7 +116,7 @@
 								<artifactItem>
 									<groupId>org.talend.studio</groupId>
 									<artifactId>about</artifactId>
-									<version>5.6.0</version>
+									<version>3.6.1</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 									<outputDirectory>${studio.dir}</outputDirectory>
@@ -124,7 +124,7 @@
 								<artifactItem>
 									<groupId>org.talend.studio</groupId>
 									<artifactId>delta</artifactId>
-									<version>5.6.0</version>
+									<version>3.6.1</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 									<outputDirectory>${studio.dir}</outputDirectory>
