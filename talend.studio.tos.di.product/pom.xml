@@ -152,20 +152,26 @@
 						<configuration>
 							<target>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
-								<property name="source.dir"
-											value="${basedir}/../build" />
 								<property name="launcher.prefix"
 											value="TOS-DI" />
+								<loadproperties>
+									<file file="${project.basedir}/build/macosx_infoplist.properties"/>
+								</loadproperties>
+								<move file="${studio.dir}/launcher-macosx-cocoa.app" tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app"/>
 								<move todir="${studio.dir}">
 									<fileset dir="${studio.dir}">
+										<include name="**/Contents/MacOS/*" />
 										<include name="*" />
-										<include name="**" />
 									</fileset>
+									<dirset dir="${studio.dir}">
+										<include name="*"/>
+									</dirset>
 									<mapper>
 										<mapper type="regexp"
 										from="(.*)launcher(.*)" to="\1${launcher.prefix}\2" />
 									</mapper>
 								</move>
+								
 								<ac:for list="linux-gtk-ppc,solaris-gtk,solaris-gtk-x86,win32-wpf,win32-x86" param="platform" xmlns:ac="antlib:net.sf.antcontrib">
 									<sequential>
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/build/launcher.ini" />
@@ -177,7 +183,12 @@
 									</sequential>
 								</ac:for>
 								<copy tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/MacOS/${launcher.prefix}-macosx-cocoa.ini" file="${project.basedir}/build/launcher_64.ini" />
-
+								<loadfile property="plist" srcFile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">
+									<filterchain>
+										<expandproperties/>
+									</filterchain>
+								</loadfile>
+								<echo file="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">${plist}</echo>
 							</target>
 						</configuration>
 						<goals>
