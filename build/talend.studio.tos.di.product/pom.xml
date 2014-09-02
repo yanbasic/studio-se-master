@@ -69,36 +69,6 @@
 					</products>
 				</configuration>        
 			</plugin>
-			<!--<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>make-directory-assembly</id>
-						<phase>package</phase>
-						<configuration>
-							<appendAssemblyId>false</appendAssemblyId>
-							<descriptor>${basedir}/assembly-descriptor.xml</descriptor>
-							<finalName>${product.short.name}-${project.version}</finalName>
-						</configuration>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>-->
-			<!--<execution>
-						<id>make-zip-assembly</id>
-						<phase>install</phase>
-						<configuration>
-							<appendAssemblyId>false</appendAssemblyId>
-							<descriptor>${basedir}/assembly-zip-descriptor.xml</descriptor>
-							<finalName>${product.short.name}-${project.version}</finalName>
-						</configuration>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -114,7 +84,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>org.talend.studio</groupId>
-									<artifactId>binaries</artifactId>
+									<artifactId>eclipse-launcher-binaries</artifactId>
 									<version>3.6.1</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
@@ -153,9 +123,9 @@
 							<target>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
 								<property name="launcher.prefix"
-											value="TOS-DI" />
+											value="TOS_DI" />
 								<loadproperties>
-									<file file="${project.basedir}/build/macosx_infoplist.properties"/>
+									<file file="${project.basedir}/macosx_infoplist.properties"/>
 								</loadproperties>
 								<move file="${studio.dir}/launcher-macosx-cocoa.app" tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app"/>
 								<move todir="${studio.dir}">
@@ -171,18 +141,18 @@
 										from="(.*)launcher(.*)" to="\1${launcher.prefix}\2" />
 									</mapper>
 								</move>
-								
+
 								<ac:for list="linux-gtk-ppc,solaris-gtk,solaris-gtk-x86,win32-wpf,win32-x86" param="platform" xmlns:ac="antlib:net.sf.antcontrib">
 									<sequential>
-										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/build/launcher.ini" />
+										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher.ini" />
 									</sequential>
 								</ac:for>
 								<ac:for list="linux-gtk-x86_64,win-x86_64" param="platform" xmlns:ac="antlib:net.sf.antcontrib">
 									<sequential>
-										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/build/launcher_64.ini" />
+										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher_64.ini" />
 									</sequential>
 								</ac:for>
-								<copy tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/MacOS/${launcher.prefix}-macosx-cocoa.ini" file="${project.basedir}/build/launcher_64.ini" />
+								<copy tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/MacOS/${launcher.prefix}-macosx-cocoa.ini" file="${project.basedir}/launcher_64.ini" />
 								<loadfile property="plist" srcFile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">
 									<filterchain>
 										<expandproperties/>

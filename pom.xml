@@ -30,7 +30,7 @@
 		<profile>
 			<id>talend.tos.products</id>
 			<modules>
-				<module>talend.studio.tos.di.product</module>
+				<module>build/talend.studio.tos.di.product</module>
 			</modules>
 		</profile>
 	</profiles>
