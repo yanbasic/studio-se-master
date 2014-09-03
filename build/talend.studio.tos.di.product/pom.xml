@@ -164,7 +164,19 @@
 						<goals>
 							<goal>run</goal>
 						</goals>
-					</execution>			 	 			 		 	
+					</execution>
+					<execution>
+						<id>delete-generated-eclipse-ini</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<delete file="${studio.dir}/eclipse.ini" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>						
 				</executions>
 				<dependencies>
 					<dependency>
@@ -185,6 +197,30 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <include>config.ini</include>
+                  </includes>
+                </resource>
+              </resources>
+              <outputDirectory>${studio.dir}/configuration</outputDirectory>
+              <overwrite>true</overwrite>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 		</plugins>
 	</build>
 </project> 

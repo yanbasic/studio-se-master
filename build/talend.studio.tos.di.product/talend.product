@@ -11,10 +11,10 @@
    </aboutInfo>
 
    <configIni use="default">
-      <linux>/org.talend.studio.tos.di.product/config.ini</linux>
-      <macosx>/org.talend.studio.tos.di.product/config.ini</macosx>
-      <solaris>/org.talend.studio.tos.di.product/config.ini</solaris>
-      <win32>/org.talend.studio.tos.di.product/config.ini</win32>
+      <linux>config.ini</linux>
+      <macosx>config.ini</macosx>
+      <solaris>config.ini</solaris>
+      <win32>config.ini</win32>
    </configIni>
 
    <launcherArgs>
@@ -45,13 +45,17 @@
 	  <feature id="org.eclipse.babel.nls_tools.gef" />
    </features>
 
-   <configurations>
+  <!-- <configurations>
+	  <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+	  <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" />
 	  <property name="file.encoding" value="UTF-8" />
 	  <property name="osgi.bundlefile.limit" value="200" />
 	  <property name="talend.studio.version" value="5.6.0.${buildQualifier}" />
-   </configurations>
+	  <property name="osgi.bundles.defaultStartLevel" value="4" />
+	  <property name="osgi.framework.extensions" value="org.talend.osgi.lib.loader" />
+   </configurations>-->
 
 </product>
