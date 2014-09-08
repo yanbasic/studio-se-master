@@ -16,11 +16,17 @@
 	</properties>
 
 	<distributionManagement>
-		<repository>
-			<id>talend_nexus_snapshots</id>
+		<snapshotRepository>
+			<id>talend_nexus_deployment</id>
 			<url>http://newbuild.talend.com:8081/nexus/content/repositories/snapshots/</url>
 			<snapshots><enabled>true</enabled></snapshots>
 			<releases><enabled>false</enabled></releases>
+		</snapshotRepository>
+		<repository>
+			<id>talend_nexus_deployment</id>
+			<url>http://newbuild.talend.com:8081/nexus/content/repositories/releases/</url>
+			<snapshots><enabled>false</enabled></snapshots>
+			<releases><enabled>true</enabled></releases>
 		</repository>
 	</distributionManagement>
 
@@ -78,7 +84,6 @@
 							<id>org.eclipse.ui.views.properties.tabbed</id>
 							<restrictTo>
 								<version>3.5.101.5_10_2</version>
-								<!-- <versionRange>[3.6,3.7)</versionRange> -->
 							</restrictTo>
 						</filter>
 
@@ -122,6 +127,10 @@
 					<format>yyyyMMdd'_'HHmm</format>
 					<archive>
 						<addMavenDescriptor>false</addMavenDescriptor>
+						<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
+						<manifestEntries>
+							<Built-By></Built-By>
+						</manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>      
