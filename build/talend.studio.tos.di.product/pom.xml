@@ -13,26 +13,35 @@
 
 	<repositories>
 		<repository>
-			<id>talend_nexus_releases</id>
+			<id>talend_nexus</id>
 			<url>http://newbuild.talend.com:8081/nexus/content/repositories/releases/</url>
 		</repository>
 	</repositories>
 
 	<properties>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/win32/win32/x86_64</studio.dir>
+		<version.full>${unqualifiedVersion}.${buildQualifier}</version.full>		
 	</properties>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>.</directory>
-				<includes>
-					<include>talend.product</include>
-				</includes>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>${project.basedir}/product.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>      
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-repository-plugin</artifactId>
@@ -74,6 +83,7 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>2.8</version>
 				<executions>
+					<!-- Unzip Eclipse artifacts -->
 					<execution>
 						<id>unpack-binaries</id>
 						<phase>prepare-package</phase>
@@ -116,17 +126,16 @@
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>1.5</version>
 				<executions>
+					<!-- Unzip launchers and prepare ini files from templates -->
 					<execution>
 						<id>copy-launchers</id>
 						<phase>prepare-package</phase>
 						<configuration>
 							<target>
+								<echo>version.full=${version.full}</echo>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
 								<property name="launcher.prefix"
 											value="TOS_DI" />
-								<loadproperties>
-									<file file="${project.basedir}/macosx_infoplist.properties"/>
-								</loadproperties>
 								<move file="${studio.dir}/launcher-macosx-cocoa.app" tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app"/>
 								<move todir="${studio.dir}">
 									<fileset dir="${studio.dir}">
@@ -142,7 +151,7 @@
 									</mapper>
 								</move>
 
-								<ac:for list="linux-gtk-ppc,solaris-gtk,solaris-gtk-x86,win32-wpf,win32-x86" param="platform" xmlns:ac="antlib:net.sf.antcontrib">
+								<ac:for list="linux-gtk-ppc,linux-gtk-x86,solaris-gtk,solaris-gtk-x86,win32-wpf,win32-x86" param="platform" xmlns:ac="antlib:net.sf.antcontrib">
 									<sequential>
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher.ini" />
 									</sequential>
@@ -152,7 +161,9 @@
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher_64.ini" />
 									</sequential>
 								</ac:for>
-								<copy tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/MacOS/${launcher.prefix}-macosx-cocoa.ini" file="${project.basedir}/launcher_64.ini" />
+								<copy tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/MacOS/${launcher.prefix}-macosx-cocoa.ini" file="${project.basedir}/launcher_macosx.ini" />
+								<property name="launcher.name" value="${product.name}" />
+								<property name="launcher.info" value="${mac.launcher.info}" />
 								<loadfile property="plist" srcFile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">
 									<filterchain>
 										<expandproperties/>
@@ -165,18 +176,24 @@
 							<goal>run</goal>
 						</goals>
 					</execution>
+					
+					<!-- Generated file artifacts.xml is currently unused, delete manually -->
 					<execution>
-						<id>delete-generated-eclipse-ini</id>
+						<id>delete-generated-files</id>
 						<phase>package</phase>
 						<configuration>
 							<target>
-								<delete file="${studio.dir}/eclipse.ini" />
+								<delete>
+									<fileset dir="${studio.dir}">
+										<include name="artifacts.xml" />
+									</fileset>
+								</delete>
 							</target>
 						</configuration>
 						<goals>
 							<goal>run</goal>
 						</goals>
-					</execution>						
+					</execution>
 				</executions>
 				<dependencies>
 					<dependency>
@@ -198,29 +215,52 @@
 				</dependencies>
 			</plugin>
 			<plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <resources>
-                <resource>
-                  <directory>${project.basedir}</directory>
-                  <filtering>true</filtering>
-                  <includes>
-                    <include>config.ini</include>
-                  </includes>
-                </resource>
-              </resources>
-              <outputDirectory>${studio.dir}/configuration</outputDirectory>
-              <overwrite>true</overwrite>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<!-- Copy config.ini into configuration dir -->
+					<execution>
+						<id>copy-config-ini</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${project.basedir}</directory>
+									<filtering>true</filtering>
+									<includes>
+										<include>config.ini</include>
+									</includes>
+								</resource>
+							</resources>
+							<outputDirectory>${studio.dir}/configuration</outputDirectory>
+							<overwrite>true</overwrite>
+						</configuration>
+					</execution>
+					<!-- Copy .eclipseproduct into product root -->
+					<execution>
+						<id>copy-eclipseproduct</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${project.basedir}</directory>
+									<filtering>true</filtering>
+									<includes>
+										<include>.eclipseproduct</include>
+									</includes>
+								</resource>
+							</resources>
+							<outputDirectory>${studio.dir}</outputDirectory>
+							<overwrite>true</overwrite>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project> 
