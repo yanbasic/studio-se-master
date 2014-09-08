@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="%productName" uid="org.talend.studio.tos.di.product" id="org.talend.rcp.branding.tos.product" application="org.talend.rcp.branding.tos.application" useFeatures="true" includeLaunchers="true">
-
-   <aboutInfo>
-      <image path="icons/about.jpg"/>
-      <text>
-         %productBlurb
-      </text>
-   </aboutInfo>
+<product name="Talend Open Studio" uid="org.talend.studio.tos.di.product" id="org.talend.rcp.branding.tos.product" application="org.talend.rcp.branding.tos.application" useFeatures="true" includeLaunchers="false">
 
    <configIni use="default">
       <linux>config.ini</linux>
@@ -17,45 +10,15 @@
       <win32>config.ini</win32>
    </configIni>
 
-   <launcherArgs>
-      <vmArgs>-Xms40m -Xmx500m -XX:MaxPermSize=128m</vmArgs>
-   </launcherArgs>
-
-   <windowImages i16="/org.talend.rcp/icons/appli_16x16.gif" i32="/org.talend.rcp/icons/appli_32x32.gif" i48="/org.talend.rcp/icons/appli_48x48.gif"/>
-
-   <splash
-      location="org.talend.rcp.branding.tos"
-      startupProgressRect="7,188,441,20"
-      startupMessageRect="7,168,441,20"
-      startupForegroundColor="FFFFFF" />
-
-   <intro introId="org.talend.rcp.intro"/>
-
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>
 
    <features>
-     <!-- <feature id="org.eclipse.equinox.executable"/>-->
       <feature id="org.talend.rcp.branding.tos_feature"/>
 	  <feature id="org.eclipse.babel.nls_eclipse" />
 	  <feature id="org.eclipse.babel.nls_tools.gef" />
    </features>
-
-  <!-- <configurations>
-	  <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
-	  <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
-      <plugin id="org.eclipse.core.runtime" autoStart="true" />
-	  <property name="file.encoding" value="UTF-8" />
-	  <property name="osgi.bundlefile.limit" value="200" />
-	  <property name="talend.studio.version" value="5.6.0.${buildQualifier}" />
-	  <property name="osgi.bundles.defaultStartLevel" value="4" />
-	  <property name="osgi.framework.extensions" value="org.talend.osgi.lib.loader" />
-   </configurations>-->
-
 </product>
