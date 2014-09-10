@@ -1,3 +1,3 @@
 name=${product.name}
-id=org.talend.rcp.branding.tos.product
+id=${product.branding.id}
 version=${version.full}
