@@ -10,12 +10,6 @@
       <win32>config.ini</win32>
    </configIni>
 
-   <vm>
-   </vm>
-
-   <plugins>
-   </plugins>
-
    <features>
       <feature id="org.talend.rcp.branding.tos_feature"/>
 	  <feature id="org.eclipse.babel.nls_eclipse" />
