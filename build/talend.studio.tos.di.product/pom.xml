@@ -20,7 +20,8 @@
 
 	<properties>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/win32/win32/x86_64</studio.dir>
-		<version.full>${unqualifiedVersion}.${buildQualifier}</version.full>		
+		<version.full>${unqualifiedVersion}.${buildQualifier}</version.full>	
+		<launcher.prefix>TOS_DI</launcher.prefix>		
 	</properties>
 
 	<build>
@@ -72,7 +73,7 @@
 					<products>
 						<product>
 							<!--We need to specify this product otherwise on Mac the build fails because of a .DS_Store found at the same level that the prodcut make the build fail.-->
-							<id>org.talend.studio.tos.di.product</id>
+							<id>${project.artifactId}</id>
 							<!--          			<archiveFileName>MyProduct-${project.version}</archiveFileName>-->
 						</product>
 					</products>
@@ -93,7 +94,7 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.talend.studio</groupId>
+									<groupId>${project.groupId}</groupId>
 									<artifactId>eclipse-launcher-binaries</artifactId>
 									<version>3.6.1</version>
 									<type>zip</type>
@@ -101,7 +102,7 @@
 									<outputDirectory>${studio.dir}</outputDirectory>
 								</artifactItem>
 								<artifactItem>
-									<groupId>org.talend.studio</groupId>
+									<groupId>${project.groupId}</groupId>
 									<artifactId>about</artifactId>
 									<version>3.6.1</version>
 									<type>zip</type>
@@ -109,7 +110,7 @@
 									<outputDirectory>${studio.dir}</outputDirectory>
 								</artifactItem>
 								<artifactItem>
-									<groupId>org.talend.studio</groupId>
+									<groupId>${project.groupId}</groupId>
 									<artifactId>delta</artifactId>
 									<version>3.6.1</version>
 									<type>zip</type>
@@ -134,8 +135,6 @@
 							<target>
 								<echo>version.full=${version.full}</echo>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
-								<property name="launcher.prefix"
-											value="TOS_DI" />
 								<move file="${studio.dir}/launcher-macosx-cocoa.app" tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app"/>
 								<move todir="${studio.dir}">
 									<fileset dir="${studio.dir}">
@@ -176,7 +175,7 @@
 							<goal>run</goal>
 						</goals>
 					</execution>
-					
+
 					<!-- Generated file artifacts.xml is currently unused, delete manually -->
 					<execution>
 						<id>delete-generated-files</id>
