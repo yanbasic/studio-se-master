@@ -13,6 +13,7 @@
 		<tycho-extras.version>0.21.0</tycho-extras.version>
 		<talend-repo.url>http://newbuild.talend.com/targetplatform/5.6.0/main/</talend-repo.url>
 		<babel-repo.url>http://newbuild.talend.com/targetplatform/5.6.0/babel/</babel-repo.url>
+		<equinox.build>org.eclipse.equinox.launcher_1.1.0.v20100507.jar</equinox.build>
 	</properties>
 
 	<distributionManagement>
