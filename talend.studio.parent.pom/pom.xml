@@ -19,7 +19,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>talend_nexus_deployment</id>
-			<url>http://newbuild.talend.com:8081/nexus/content/repositories/snapshots/</url>
+			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
 			<snapshots><enabled>true</enabled></snapshots>
 			<releases><enabled>false</enabled></releases>
 		</snapshotRepository>
@@ -41,6 +41,12 @@
 			<id>babel_repo</id>
 			<url>${babel-repo.url}</url>
 			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>talend_open_release</id>
+			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceRelease/</url>
+			<snapshots><enabled>false</enabled></snapshots>
+			<releases><enabled>true</enabled></releases>
 		</repository>
 	</repositories>  
 
