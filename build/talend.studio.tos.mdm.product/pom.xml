@@ -13,8 +13,8 @@
 
 	<repositories>
 		<repository>
-			<id>talend_nexus</id>
-			<url>http://newbuild.talend.com:8081/nexus/content/repositories/releases/</url>
+			<id>talend_open</id>
+			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
 		</repository>
 	</repositories>
 
@@ -103,7 +103,7 @@
 								</artifactItem>
 								<artifactItem>
 									<groupId>${project.groupId}</groupId>
-									<artifactId>about</artifactId>
+									<artifactId>tos-about-files</artifactId>
 									<version>3.6.1</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
@@ -111,7 +111,7 @@
 								</artifactItem>
 								<artifactItem>
 									<groupId>${project.groupId}</groupId>
-									<artifactId>delta</artifactId>
+									<artifactId>eclipse-delta-pack</artifactId>
 									<version>3.6.1</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
