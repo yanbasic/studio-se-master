@@ -10,8 +10,4 @@
 
 	<artifactId>org.talend.studio.tos.bigdata.product</artifactId>
 	<packaging>eclipse-repository</packaging>
-
-	<properties>
-		<launcher.prefix>TOS_BD</launcher.prefix>
-	</properties>
 </project> 

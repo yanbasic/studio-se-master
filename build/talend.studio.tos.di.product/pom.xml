@@ -10,8 +10,4 @@
 
 	<artifactId>org.talend.studio.tos.di.product</artifactId>
 	<packaging>eclipse-repository</packaging>
-
-	<properties>	
-		<launcher.prefix>TOS_DI</launcher.prefix>
-	</properties>
 </project> 

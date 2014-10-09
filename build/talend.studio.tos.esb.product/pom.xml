@@ -10,8 +10,4 @@
 
 	<artifactId>org.talend.studio.tos.esb.product</artifactId>
 	<packaging>eclipse-repository</packaging>
-
-	<properties>
-		<launcher.prefix>TOS_ESB</launcher.prefix>		
-	</properties>
 </project> 
