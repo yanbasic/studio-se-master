@@ -10,4 +10,7 @@
 
 	<artifactId>org.talend.studio.tos.mdm.product</artifactId>
 	<packaging>eclipse-repository</packaging>
+	<properties>
+		<product.dir.name>TOS_MDM-Studio-${buildQualifier}-V${unqualifiedVersion}${release.type}</product.dir.name>
+	</properties>
 </project> 
