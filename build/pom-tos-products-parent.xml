@@ -312,13 +312,12 @@
 						<configuration>
 							<target>
 								<property name="product.dir.name" value="${launcher.prefix}-${buildQualifier}-V${unqualifiedVersion}${release.type}" />
-								<mkdir dir="${studio.dir}/../${product.dir.name}" />
-								<move todir="${studio.dir}/../${product.dir.name}" >
-									<fileset dir="${studio.dir}">
-										<include name="**/*" />
-									</fileset>
-								</move>
-								<zip destfile="${project.build.directory}/products/${product.dir.name}.zip" basedir="${studio.dir}/../${product.dir.name}" />
+								<move file="${studio.dir}" tofile="${studio.dir}/../${product.dir.name}" />
+								<zip destfile="${project.build.directory}/products/${product.dir.name}.zip">
+									<zipfileset dir="${studio.dir}/..">
+										<include name="${product.dir.name}/**/**" />
+									</zipfileset>
+								</zip>
 							</target>
 						</configuration>
 						<goals>
