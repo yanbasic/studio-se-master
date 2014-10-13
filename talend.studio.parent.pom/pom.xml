@@ -18,14 +18,14 @@
 
 	<distributionManagement>
 		<snapshotRepository>
-			<id>talend_nexus_deployment</id>
+			<id>talend_open</id>
 			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
 			<snapshots><enabled>true</enabled></snapshots>
 			<releases><enabled>false</enabled></releases>
 		</snapshotRepository>
 		<repository>
-			<id>talend_nexus_deployment</id>
-			<url>http://newbuild.talend.com:8081/nexus/content/repositories/releases/</url>
+			<id>talend_open</id>
+			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceRelease/</url>
 			<snapshots><enabled>false</enabled></snapshots>
 			<releases><enabled>true</enabled></releases>
 		</repository>
@@ -43,10 +43,24 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>talend_open_release</id>
+			<id>talend_open</id>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceRelease/</url>
-			<snapshots><enabled>false</enabled></snapshots>
-			<releases><enabled>true</enabled></releases>
+		</repository>
+		<repository>
+			<id>talend_open_snapshots</id>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
 		</repository>
 	</repositories>  
 
