@@ -14,11 +14,28 @@
 	<repositories>
 		<repository>
 			<id>talend_open</id>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceRelease/</url>
+		</repository>
+		<repository>
+			<id>talend_open_snapshots</id>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
 		</repository>
 	</repositories>
 
 	<properties>
+		<product.final.name>${launcher.prefix}-${buildQualifier}-V${unqualifiedVersion}${release.type}</product.final.name>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/win32/win32/x86_64</studio.dir>
 		<version.full>${unqualifiedVersion}.${buildQualifier}</version.full>
 		<release.type>SNAP</release.type>
@@ -54,6 +71,19 @@
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-publisher-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>attach-p2-artifacts</id>
+						<goals>
+							<goal>attach-artifacts</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-director-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<executions>
@@ -69,7 +99,6 @@
 						<product>
 							<!--We need to specify this product otherwise on Mac the build fails because of a .DS_Store found at the same level that the prodcut make the build fail.-->
 							<id>${project.artifactId}</id>
-							<!--          			<archiveFileName>MyProduct-${project.version}</archiveFileName>-->
 						</product>
 					</products>
 				</configuration>        
@@ -311,11 +340,10 @@
 						<phase>package</phase>
 						<configuration>
 							<target>
-								<property name="product.dir.name" value="${launcher.prefix}-${buildQualifier}-V${unqualifiedVersion}${release.type}" />
-								<move file="${studio.dir}" tofile="${studio.dir}/../${product.dir.name}" />
-								<zip destfile="${project.build.directory}/products/${product.dir.name}.zip">
+								<move file="${studio.dir}" tofile="${studio.dir}/../${product.final.name}" />
+								<zip destfile="${project.build.directory}/products/${product.final.name}.zip">
 									<zipfileset dir="${studio.dir}/..">
-										<include name="${product.dir.name}/**/**" />
+										<include name="${product.final.name}/**/**" />
 									</zipfileset>
 								</zip>
 							</target>
@@ -343,6 +371,28 @@
 						<version>1.8.1</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>${project.build.directory}/products/${product.final.name}.zip</file>
+									<type>product</type>                           
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
