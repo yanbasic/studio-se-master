@@ -12,7 +12,6 @@
 		<tycho.version>0.21.0</tycho.version>
 		<tycho-extras.version>0.21.0</tycho-extras.version>
 		<base.version>6.0.0</base.version>
-		<release.type>-SNAPSHOT</release.type>
 		<talend.nexus.url>http://newbuild.talend.com:8081/nexus/content/repositories</talend.nexus.url>
 		<talendtargetplatform.url>http://newbuild.talend.com/targetplatform</talendtargetplatform.url>
 		<talendtargetplatformversion.url>${talendtargetplatform.url}/${base.version}</talendtargetplatformversion.url>
@@ -154,10 +153,13 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>build</id>
+			<id>nonofficial</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
+			<properties>
+				<release.type>-SNAPSHOT</release.type>
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -192,12 +194,31 @@
 		<profile>
 			<id>official</id>
 			<properties>
-				<talendtargetplatform.path>${buildRoot}/targetplatform</talendtargetplatform.path>
+				<talendtargetplatform.path>${buildRootDir}/../targetplatform</talendtargetplatform.path>
 				<unqualifiedVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</unqualifiedVersion>
 				<talendtargetplatformversion.path>${talendtargetplatform.path}/${unqualifiedVersion}</talendtargetplatformversion.path>
 			</properties>
 			<build>
 				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<id>read-build-properties</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>${buildRootDir}/config/build.50more.properties</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>      
+					</plugin>
 					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-packaging-plugin</artifactId>
@@ -206,12 +227,12 @@
 							<dependency>
 								<groupId>org.eclipse.tycho.extras</groupId>
 								<artifactId>tycho-buildtimestamp-jgit</artifactId>
-								<version>${tycho-extras.version}</version>
+								<version>${tycho.version}</version>
 							</dependency>
 						</dependencies>
 						<configuration>
 							<strictBinIncludes>false</strictBinIncludes>
-							<format>yyyyMMdd'_'HHmm'-${release.type}'</format>
+							<format>'${product.timestamp}${release.type}'</format>
 							<archive>
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
@@ -220,7 +241,10 @@
 								</manifestEntries>
 							</archive>
 							<timestampProvider>jgit</timestampProvider>
-							<jgit.ignore>pom.xml</jgit.ignore>
+							<jgit.ignore>
+pom.xml
+product.properties
+</jgit.ignore>
 						</configuration>
 					</plugin>
 					<plugin>
