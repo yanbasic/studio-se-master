@@ -12,6 +12,7 @@
 		<tycho.version>0.21.0</tycho.version>
 		<tycho-extras.version>0.21.0</tycho-extras.version>
 		<base.version>6.0.0</base.version>
+		<release.type>-SNAPSHOT</release.type>
 		<talend.nexus.url>http://newbuild.talend.com:8081/nexus/content/repositories</talend.nexus.url>
 		<talendtargetplatform.url>http://newbuild.talend.com/targetplatform</talendtargetplatform.url>
 		<talendtargetplatformversion.url>${talendtargetplatform.url}/${base.version}</talendtargetplatformversion.url>
@@ -172,7 +173,7 @@
 						</dependencies>
 						<configuration>
 							<strictBinIncludes>false</strictBinIncludes>
-							<format>yyyyMMdd'_'HHmm'-${release.type}'</format>
+							<format>yyyyMMdd'_'HHmm'${release.type}'</format>
 							<archive>
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->

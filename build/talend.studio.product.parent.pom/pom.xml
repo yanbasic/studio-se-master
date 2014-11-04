@@ -37,7 +37,6 @@
 	<properties>
 		<product.final.name>${launcher.prefix}-${buildQualifier}-V${unqualifiedVersion}${release.type}</product.final.name>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/win32/win32/x86_64</studio.dir>
-		<release.type>SNAPSHOT</release.type>
 		<version.full>${unqualifiedVersion}.${buildQualifier}</version.full>
 	</properties>
 
