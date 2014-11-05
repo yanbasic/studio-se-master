@@ -158,7 +158,8 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<release.type>-SNAPSHOT</release.type>
+				<release.suffix>-SNAPSHOT</release.suffix>
+				<revision.filename>SNAP</revision.filename>
 			</properties>
 			<build>
 				<plugins>
@@ -175,7 +176,7 @@
 						</dependencies>
 						<configuration>
 							<strictBinIncludes>false</strictBinIncludes>
-							<format>yyyyMMdd'_'HHmm'${release.type}'</format>
+							<format>yyyyMMdd'_'HHmm'${release.suffix}'</format>
 							<archive>
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
@@ -232,7 +233,7 @@
 						</dependencies>
 						<configuration>
 							<strictBinIncludes>false</strictBinIncludes>
-							<format>'${product.timestamp}${release.type}'</format>
+							<format>'${product.timestamp}${release.suffix}'</format>
 							<archive>
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->

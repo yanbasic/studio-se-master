@@ -64,9 +64,9 @@
 		
 		<profile>
 			<id>official</id>
-			<modules>
+			<!--<modules>
 				<module>build/talend.studio.tos.all.p2.product</module>
-			</modules>
+			</modules>-->
 			<build>
 				<plugins>
 					<plugin>
