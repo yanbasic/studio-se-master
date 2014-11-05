@@ -211,7 +211,7 @@
 					</execution>
 				</executions>
 			</plugin>
-		<!--	<plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.3.2</version>
@@ -240,7 +240,7 @@
 						<argument>-Dtalend.licence.path=${studio.dir}/license</argument>
 					</arguments>
 				</configuration>
-			</plugin>-->
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -340,6 +340,28 @@
 									</filterchain>
 								</loadfile>
 								<echo file="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">${plist}</echo>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<!-- Set properties in branding plugin about.mappings -->
+						<id>about-mappings</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<echo>version.full=${version.full}</echo>
+								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
+								<fileset dir="C:\builds\studio\studio-se-master\build\talend.studio.tos.bd.product\target\products\org.talend.studio.tos.bigdata.product\win32\win32\x86_64/plugins" includes="org.talend.rcp.branding.tos.bigdata*/about.mappings" id="aboutmappingspath_temp" />
+								<pathconvert pathsep=", " property="aboutmappingspath" refid="aboutmappingspath_temp" />	
+								<echo>aboutmappingspath = ${aboutmappingspath}</echo>
+								<loadfile property="about" srcFile="${aboutmappingspath}">
+									<filterchain>
+										<expandproperties/>
+									</filterchain>
+								</loadfile>
 							</target>
 						</configuration>
 						<goals>
