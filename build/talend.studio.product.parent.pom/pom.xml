@@ -37,28 +37,10 @@
 	<properties>
 		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/win32/win32/x86_64</studio.dir>
-		<version.full>${unqualifiedVersion}.${product.timestamp}${release.suffix}</version.full>
 	</properties>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-packaging-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<configuration>
-					<strictBinIncludes>false</strictBinIncludes>
-					<format>yyyyMMdd'_'HHmm'${release.suffix}'</format>
-					<archive>
-						<addMavenDescriptor>false</addMavenDescriptor>
-						<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
-						<manifestEntries>
-							<Built-By></Built-By>
-						</manifestEntries>
-					</archive>
-					<timestampProvider>default</timestampProvider>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>properties-maven-plugin</artifactId>
@@ -254,8 +236,15 @@
 							<exportAntProperties>true</exportAntProperties>
 							<target>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
-								<propertyregex property="product.timestamp" input="${buildQualifier}" regexp="^([0-9_]{13})(.*)" select="\1" casesensitive="false" />
+								<if>
+									<not><isset property="product.timestamp" /></not>
+									<then>
+										<propertyregex property="product.timestamp" input="${buildQualifier}" regexp="^([0-9_]{13})(.*)" select="\1" casesensitive="false" />
+									</then>
+								</if>
 								<echo>product.timestamp = ${product.timestamp}</echo>
+								<property name="version.full" value="${unqualifiedVersion}.${product.timestamp}${release.suffix}" />
+								<echo>version.full = ${version.full}</echo>
 							</target>
 						</configuration>
 						<goals>
@@ -271,16 +260,8 @@
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
 								<echo>Looking for ${studio.dir}/plugins/${product.branding.platform}_${unqualifiedVersion}*</echo>
 								<echo>product.timestamp=${product.timestamp}</echo>
-								<echo file="${project.build.directory}/version_tmp.txt">${version.full}</echo>
-								<loadfile property="version.full.tmp" srcFile="${project.build.directory}/version_tmp.txt">
-									<filterchain>
-										<expandproperties/>
-									</filterchain>
-								</loadfile>
-								<propertycopy property="version.full" from="version.full.tmp" override="true" />
 								<echo>version.full=${version.full}</echo>
-								<delete file="${project.build.directory}/version_tmp.txt" />
-								<fileset dir="C:\builds\studio\studio-se-master\build\talend.studio.tos.bd.product\target\products\org.talend.studio.tos.bigdata.product\win32\win32\x86_64/plugins" includes="org.talend.rcp.branding.tos.bigdata*/about.mappings" id="aboutmappingspath_temp" />
+								<fileset dir="${studio.dir}/plugins" includes="org.talend.rcp.branding.tos.bigdata*/about.mappings" id="aboutmappingspath_temp" />
 								<pathconvert property="aboutmappingspath" refid="aboutmappingspath_temp" />	
 								<echo>aboutmappingspath=${aboutmappingspath}</echo>
 								<loadfile property="about" srcFile="${aboutmappingspath}">
@@ -423,9 +404,53 @@
 	</build>
 	<profiles>
 		<profile>
+			<id>nonofficial</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-packaging-plugin</artifactId>
+						<version>${tycho.version}</version>
+						<configuration>
+							<strictBinIncludes>false</strictBinIncludes>
+							<format>yyyyMMdd'_'HHmm'${release.suffix}'</format>
+							<archive>
+								<addMavenDescriptor>false</addMavenDescriptor>
+								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
+								<manifestEntries>
+									<Built-By></Built-By>
+								</manifestEntries>
+							</archive>
+							<timestampProvider>default</timestampProvider>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>official</id>
 			<build>
 				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-packaging-plugin</artifactId>
+						<version>${tycho.version}</version>
+						<configuration>
+							<strictBinIncludes>false</strictBinIncludes>
+							<format>'${product.timestamp}${release.suffix}'</format>
+							<archive>
+								<addMavenDescriptor>false</addMavenDescriptor>
+								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
+								<manifestEntries>
+									<Built-By></Built-By>
+								</manifestEntries>
+							</archive>
+							<timestampProvider>default</timestampProvider>
+						</configuration>
+					</plugin>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
@@ -452,7 +477,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.5</version>
+						<version>1.7</version>
 						<executions>
 							<execution>
 								<!-- Copy build to products directory -->
