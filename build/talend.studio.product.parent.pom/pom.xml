@@ -270,28 +270,25 @@
 							<target>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
 								<echo>Looking for ${studio.dir}/plugins/${product.branding.platform}_${unqualifiedVersion}*</echo>
-								<path id="branding.plugin.path">
-									<dirset dir="${studio.dir}/plugins">
-										<include name="${product.branding.platform}_${unqualifiedVersion}*" />
-									</dirset>
-								</path>
-								<property name="branding.plugin" refid="branding.plugin.path" />
-								<if>
-									<and>
-										<isset property="branding.plugin" />
-										<not><equals arg1="${branding.plugin}" arg2="" /></not>
-									</and>
-
-									<then>
-										<echo>Found branding plugin: ${branding.plugin}</echo>
-										<copy file="${branding.plugin}/about.mappings" toFile="${branding.plugin}/about.mappings.tmp">
-											<filterchain>
-												<expandproperties/>
-											</filterchain>
-										</copy>
-										<move file="${branding.plugin}/about.mappings.tmp" tofile="${branding.plugin}/about.mappings" overwrite="true" />
-									</then>
-								</if>
+								<echo>product.timestamp=${product.timestamp}</echo>
+								<echo file="${project.build.directory}/version_tmp.txt">${version.full}</echo>
+								<loadfile property="version.full.tmp" srcFile="${project.build.directory}/version_tmp.txt">
+									<filterchain>
+										<expandproperties/>
+									</filterchain>
+								</loadfile>
+								<propertycopy property="version.full" from="version.full.tmp" override="true" />
+								<echo>version.full=${version.full}</echo>
+								<delete file="${project.build.directory}/version_tmp.txt" />
+								<fileset dir="C:\builds\studio\studio-se-master\build\talend.studio.tos.bd.product\target\products\org.talend.studio.tos.bigdata.product\win32\win32\x86_64/plugins" includes="org.talend.rcp.branding.tos.bigdata*/about.mappings" id="aboutmappingspath_temp" />
+								<pathconvert property="aboutmappingspath" refid="aboutmappingspath_temp" />	
+								<echo>aboutmappingspath=${aboutmappingspath}</echo>
+								<loadfile property="about" srcFile="${aboutmappingspath}">
+									<filterchain>
+										<expandproperties/>
+									</filterchain>
+								</loadfile>
+								<echo file="${aboutmappingspath}">${about}</echo>
 							</target>
 						</configuration>
 						<goals>
@@ -340,28 +337,6 @@
 									</filterchain>
 								</loadfile>
 								<echo file="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">${plist}</echo>
-							</target>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-					<execution>
-						<!-- Set properties in branding plugin about.mappings -->
-						<id>about-mappings</id>
-						<phase>package</phase>
-						<configuration>
-							<target>
-								<echo>version.full=${version.full}</echo>
-								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
-								<fileset dir="C:\builds\studio\studio-se-master\build\talend.studio.tos.bd.product\target\products\org.talend.studio.tos.bigdata.product\win32\win32\x86_64/plugins" includes="org.talend.rcp.branding.tos.bigdata*/about.mappings" id="aboutmappingspath_temp" />
-								<pathconvert pathsep=", " property="aboutmappingspath" refid="aboutmappingspath_temp" />	
-								<echo>aboutmappingspath = ${aboutmappingspath}</echo>
-								<loadfile property="about" srcFile="${aboutmappingspath}">
-									<filterchain>
-										<expandproperties/>
-									</filterchain>
-								</loadfile>
 							</target>
 						</configuration>
 						<goals>
