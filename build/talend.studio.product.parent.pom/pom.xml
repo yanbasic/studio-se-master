@@ -261,7 +261,7 @@
 								<echo>Looking for ${studio.dir}/plugins/${product.branding.platform}_${unqualifiedVersion}*</echo>
 								<echo>product.timestamp=${product.timestamp}</echo>
 								<echo>version.full=${version.full}</echo>
-								<fileset dir="${studio.dir}/plugins" includes="org.talend.rcp.branding.tos.bigdata*/about.mappings" id="aboutmappingspath_temp" />
+								<fileset dir="${studio.dir}/plugins" includes="${product.branding.platform}_${unqualifiedVersion}*/about.mappings" id="aboutmappingspath_temp" />
 								<pathconvert property="aboutmappingspath" refid="aboutmappingspath_temp" />	
 								<echo>aboutmappingspath=${aboutmappingspath}</echo>
 								<loadfile property="about" srcFile="${aboutmappingspath}">
