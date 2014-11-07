@@ -248,7 +248,7 @@ product.properties
 </jgit.ignore>
 						</configuration>
 					</plugin>
-					<plugin>
+					<!--<plugin>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-p2-plugin</artifactId>
 						<version>${tycho.version}</version>
@@ -259,7 +259,7 @@ product.properties
 								</repository>
 							</baselineRepositories>
 						</configuration>
-					</plugin>
+					</plugin>-->
 				</plugins>
 			</build>
 		</profile>
