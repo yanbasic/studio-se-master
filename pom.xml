@@ -69,12 +69,12 @@
 			</modules>-->
 			<build>
 				<plugins>
-					<plugin>
+					<!--<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
 						<version>1.5</version>
 						<executions>
-							<!-- Cleanup p2 repo for reproducible version qualifiers -->
+							 Cleanup p2 repo for reproducible version qualifiers 
 							<execution>
 								<id>cleanup-p2-repo</id>
 								<phase>install</phase>
@@ -121,7 +121,7 @@
 								<version>1.8.1</version>
 							</dependency>
 						</dependencies>
-					</plugin>
+					</plugin>-->
 				</plugins>
 			</build>
 		</profile>
