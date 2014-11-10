@@ -8,7 +8,7 @@ It is a simple git repo but allows working with all Talend Studio open source re
 
 Install GitSlave
 ================
-GitSlave is the tool you can use to perfom multi-repo command, in order to use it to its full potential please
+GitSlave is the tool you can use to perform multi-repo command, in order to use it to its full potential please
 install : 
 * perl 
 * clone this repostitory locally if not already done.
