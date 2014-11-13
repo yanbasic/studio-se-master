@@ -323,6 +323,7 @@
 									</filterchain>
 								</loadfile>
 								<echo file="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">${plist}</echo>
+								<chmod dir="${studio.dir}" perm="755" includes="${launcher.prefix}*" verbose="true" />
 							</target>
 						</configuration>
 						<goals>
