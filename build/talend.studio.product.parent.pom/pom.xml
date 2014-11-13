@@ -298,7 +298,12 @@
 											from="(.*)launcher(.*)" to="\1${launcher.prefix}\2" />
 									</mapper>
 								</move>
-
+								<loadfile property="launcher_sh" srcFile="${studio.dir}/${launcher.prefix}-linux-gtk-x86.sh">
+									<filterchain>
+										<expandproperties/>
+									</filterchain>
+								</loadfile>
+								<echo file="${studio.dir}/${launcher.prefix}-linux-gtk-x86.sh">${launcher_sh}</echo>
 								<ac:for list="linux-gtk-ppc,linux-gtk-x86,solaris-gtk,solaris-gtk-x86,win32-wpf,win32-x86" param="platform" xmlns:ac="antlib:net.sf.antcontrib">
 									<sequential>
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher.ini" />
