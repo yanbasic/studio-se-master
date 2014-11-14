@@ -493,10 +493,20 @@
 									<target>
 										<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
 										<propertyregex property="product.version.short" input="${unqualifiedVersion}" regexp="\." replace="" global="true" casesensitive="false" override="true" />
-										<property name="product.dir" value="${storage}/${product.build.id}/${storage.dir}/V${unqualifiedVersion}${revision.filename}/${storage.dir}_${product.version.short}" />
+										<property name="product.build.path" value="${product.build.id}/${storage.dir}/V${unqualifiedVersion}${revision.filename}/${storage.dir}_${product.version.short}" />
+										<property name="product.dir" value="${storage}/${product.build.path}" />
 										<mkdir dir="${product.dir}" />
 										<echo>Moving product ZIP ${project.build.directory}/products/${product.final.name}.zip to ${product.dir}</echo>
 										<move todir="${product.dir}" file="${project.build.directory}/products/${product.final.name}.zip" />
+										<if>
+											<and>
+												<equals arg1="${env.HUDSON_URL}" arg2="http://newbuild.talend.com:8180/" />
+												<equals arg1="${automaticnb}" arg2="1" />
+											</and>
+											<then>
+												<echo file="${storage}/lastnb.txt" append="true">http://newbuild.talend.com/builds/${product.build.path}/${product.final.name}.zip</echo>
+											</then>
+										</if>
 									</target>
 								</configuration>
 								<goals>
