@@ -374,9 +374,9 @@
 						<configuration>
 							<target>
 								<echo>product.timestamp = ${product.timestamp}</echo>
-								<move file="${studio.dir}" tofile="${studio.dir}/../${product.final.name}" />
+								<move file="${studio.dir}" tofile="${studio.dir}/../${product.final.name}" filemode="755" />
 								<zip destfile="${project.build.directory}/products/${product.final.name}.zip">
-									<zipfileset dir="${studio.dir}/..">
+									<zipfileset filemode="755" dir="${studio.dir}/..">
 										<include name="${product.final.name}/**/**" />
 									</zipfileset>
 								</zip>
