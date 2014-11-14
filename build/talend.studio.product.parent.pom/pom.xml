@@ -504,7 +504,7 @@
 												<equals arg1="${automaticnb}" arg2="1" />
 											</and>
 											<then>
-												<echo file="${storage}/lastnb.txt" append="true">http://newbuild.talend.com/builds/${product.build.path}/${product.final.name}.zip</echo>
+												<echo file="${storage}/lastnb.txt" append="true">http://newbuild.talend.com/builds/${product.build.path}/${product.final.name}.zip${line.separator}</echo>
 											</then>
 										</if>
 									</target>
