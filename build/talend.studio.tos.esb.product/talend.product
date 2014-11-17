@@ -58,7 +58,7 @@
    </plugins>-->
 
    <features>
-      <feature id="org.talend.rcp.branding.esbstandard_feature"/>
+      <feature id="org.talend.rcp.branding.esbstandard-feature"/>
       <feature id="org.eclipse.babel.nls_eclipse" />
       <feature id="org.eclipse.babel.nls_tools.gef" />
    </features>
