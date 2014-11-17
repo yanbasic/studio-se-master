@@ -55,6 +55,13 @@
 		</profile>
 		
 		<profile>
+			<id>talend.tos.products</id>
+			<modules>
+				<module>build</module>
+			</modules>
+		</profile>
+		
+		<profile>
 			<id>official</id>
 			<modules>
 				<module>../tbd-studio-se</module>
