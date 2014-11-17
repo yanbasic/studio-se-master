@@ -12,8 +12,8 @@
 
    <features>
       <feature id="org.talend.rcp.branding.tos.bigdata_feature"/>
-	  <feature id="org.talend.rcp.branding.tos_feature"/>
-	  <feature id="org.talend.rcp.branding.top_feature"/>
+	  <feature id="org.talend.rcp.branding.tos-feature"/>
+	  <feature id="org.talend.rcp.branding.top-feature"/>
 	  <feature id="org.talend.rcp.branding.esbstandard_feature"/>
 	  <feature id="org.talend.rcp.branding.tombundle-feature"/>
       <feature id="org.eclipse.babel.nls_eclipse" />
