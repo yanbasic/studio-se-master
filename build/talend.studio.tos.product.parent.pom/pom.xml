@@ -36,7 +36,7 @@
 
 	<properties>
 		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
-		<studio.dir>${project.build.directory}/products/${project.artifactId}/win32/win32/x86_64</studio.dir>
+		<studio.dir>${project.build.directory}/products/${project.artifactId}/${osgi.ws}/${osgi.os}/${osgi.arch}</studio.dir>
 	</properties>
 
 	<build>

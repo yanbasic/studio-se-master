@@ -20,6 +20,7 @@
 		<equinox.build>org.eclipse.equinox.launcher_1.1.0.v20100507.jar</equinox.build>
 		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot/</opensourcesnapshot-repo.url>
 		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease/</opensourcerelease-repo.url>
+		<jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
 	</properties>
 
 	<distributionManagement>
@@ -105,7 +106,7 @@
 						<environment>
 							<os>win32</os>
 							<ws>win32</ws>
-							<arch>x86_64</arch>
+							<arch>x86</arch>
 						</environment>
 					</environments>
 					<filters>
@@ -186,7 +187,7 @@
 							</archive>
 							<timestampProvider>jgit</timestampProvider>
 							<jgit.ignore>pom.xml</jgit.ignore>
-							<jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+							<jgit.dirtyWorkingTree>ignore</jgit.dirtyWorkingTree>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -246,6 +247,7 @@
 pom.xml
 product.properties
 </jgit.ignore>
+							<jgit.dirtyWorkingTree>${jgit.dirtyWorkingTree.official}</jgit.dirtyWorkingTree>
 						</configuration>
 					</plugin>
 					<!--<plugin>

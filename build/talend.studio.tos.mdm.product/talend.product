@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Talend Open Studio for MDM" uid="org.talend.studio.tos.mdm.product" id="org.talend.rcp.branding.tombundle.product" application="org.talend.rcp.branding.tombundle.application" useFeatures="true" includeLaunchers="false">
+<product uid="org.talend.studio.tos.mdm.product" id="org.talend.rcp.branding.tombundle.product" useFeatures="true" includeLaunchers="false">
 
    <configIni use="default">
       <linux>config.ini</linux>
