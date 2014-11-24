@@ -45,3 +45,30 @@ then go back to the root of this repos and launch the same maven command to buil
 ```
 mvn clean install
 ```
+
+The generated executable will then be found in 2 flavours, one zip file and one unzip folder ready to be executed.
+* The zip file may be found in *studio-se-master\build\talend.studio.tos.di.product\target\products\*
+* the unzipped ready to execute folder can be found in *studio-se-master\build\talend.studio.tos.XX.product\target\products\org.talend.studio.tos.XX.product\win32\win32\*
+
+## Support 
+
+You can ask for help on our [Forum](http://www.talend.com/services/global-technical-support).
+
+
+## Contributing
+
+We welcome contributions of all kinds from anyone.
+
+Using the bug tracker [Talend bugtracker](http://jira.talendforge.org/) is the best channel for bug reports, feature requests and submitting pull requests.
+
+Feel free to share your Talend components on [Talend Exchange](http://www.talendforge.org/exchange).
+
+## Contributors
+
+See the [CONTRIBUTORS.md](./CONTRIBUTORS.md) file for details.
+
+## License
+
+Copyright (c) 2006-2014 Talend
+
+Licensed under the LPGLv3 License
