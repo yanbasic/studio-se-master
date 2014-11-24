@@ -21,6 +21,9 @@
 		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot/</opensourcesnapshot-repo.url>
 		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease/</opensourcerelease-repo.url>
 		<jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
+		<osgi.ws>win32</osgi.ws>
+		<osgi.os>win32</osgi.os>
+		<osgi.arch>x86</osgi.arch>
 	</properties>
 
 	<distributionManagement>
@@ -104,9 +107,9 @@
 				<configuration>
 					<environments>
 						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86</arch>
+							<os>${osgi.ws}</os>
+							<ws>${osgi.os}</ws>
+							<arch>${osgi.arch}</arch>
 						</environment>
 					</environments>
 					<filters>

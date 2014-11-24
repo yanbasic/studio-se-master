@@ -51,12 +51,6 @@
 				<module>../tesb-studio-se</module>
 				<module>../tmdm-common</module>
 				<module>../tmdm-studio-se</module>
-			</modules>
-		</profile>
-		
-		<profile>
-			<id>talend.tos.products</id>
-			<modules>
 				<module>build</module>
 			</modules>
 		</profile>
@@ -72,6 +66,7 @@
 				<module>../tmdm-common</module>
 				<module>../tmdm-studio-se</module>
 				<module>../toem-studio-se</module>
+				<module>build</module>
 				<!--<module>build/talend.studio.tos.all.p2.product</module>-->
 			</modules>
 			<build>
