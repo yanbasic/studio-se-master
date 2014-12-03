@@ -507,6 +507,7 @@
 												<echo file="${storage}/lastnb.txt" append="true">http://newbuild.talend.com/builds/${product.build.path}/${product.final.name}.zip${line.separator}</echo>
 											</then>
 										</if>
+										<checksum file="${product.dir}/${product.final.name}.zip" />
 									</target>
 								</configuration>
 								<goals>
