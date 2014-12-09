@@ -17,6 +17,7 @@
 		<talendtargetplatformversion.url>${talendtargetplatform.url}/${base.version}</talendtargetplatformversion.url>
 		<talend-repo.url>${talendtargetplatformversion.url}/main/</talend-repo.url>
 		<babel-repo.url>${talendtargetplatformversion.url}/babel/</babel-repo.url>
+		<doc-repo.url>${talendtargetplatform.url}/5.6.1/documentation/</doc-repo.url>
 		<equinox.build>org.eclipse.equinox.launcher_1.1.0.v20100507.jar</equinox.build>
 		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot/</opensourcesnapshot-repo.url>
 		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease/</opensourcerelease-repo.url>
@@ -50,6 +51,11 @@
 		<repository>
 			<id>babel_repo</id>
 			<url>${babel-repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>doc_repo</id>
+			<url>${doc-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
