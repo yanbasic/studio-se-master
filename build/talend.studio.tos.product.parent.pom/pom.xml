@@ -134,7 +134,29 @@
 									<groupId>${project.groupId}</groupId>
 									<artifactId>${product.branding.platform}</artifactId>
 									<version>${project.version}</version>
-									<type>license</type>
+									<type>txt</type>
+									<classifier>license</classifier>
+									<overWrite>true</overWrite>
+									<outputDirectory>${studio.dir}</outputDirectory>
+									<destFileName>license.txt</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-notice-txt</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${product.branding.platform}</artifactId>
+									<version>${project.version}</version>
+									<type>txt</type>
+									<classifier>notice</classifier>
 									<overWrite>true</overWrite>
 									<outputDirectory>${studio.dir}</outputDirectory>
 									<destFileName>license.txt</destFileName>
