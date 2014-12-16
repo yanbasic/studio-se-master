@@ -9,8 +9,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tycho.version>0.21.0</tycho.version>
-		<tycho-extras.version>0.21.0</tycho-extras.version>
+		<tycho.version>0.22.0</tycho.version>
+		<tycho-extras.version>0.22.0</tycho-extras.version>
 		<base.version>6.0.0</base.version>
 		<talend.nexus.url>http://newbuild.talend.com:8081/nexus/content/repositories</talend.nexus.url>
 		<talendtargetplatform.url>http://newbuild.talend.com/targetplatform</talendtargetplatform.url>
