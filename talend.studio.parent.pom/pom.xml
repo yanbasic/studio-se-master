@@ -154,9 +154,9 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
-					<compilerVersion>1.6</compilerVersion>
-					<source>1.6</source>
-					<target>1.6</target>
+					<compilerVersion>1.7</compilerVersion>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 		</plugins>
