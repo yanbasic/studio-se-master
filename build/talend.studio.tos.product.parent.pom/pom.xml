@@ -479,14 +479,15 @@
 							<timestampProvider>default</timestampProvider>
 						</configuration>
 					</plugin>
+					<!--
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
 						<version>1.7</version>
 						<executions>
-							<execution>
+							<execution>-->
 								<!-- Attach product ZIP to Maven artifact -->
-								<id>attach-artifacts</id>
+							<!--	<id>attach-artifacts</id>
 								<phase>package</phase>
 								<goals>
 									<goal>attach-artifact</goal>
@@ -501,7 +502,7 @@
 								</configuration>
 							</execution>
 						</executions>
-					</plugin>
+					</plugin>-->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
