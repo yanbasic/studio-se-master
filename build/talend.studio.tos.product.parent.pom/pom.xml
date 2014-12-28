@@ -376,10 +376,6 @@
                                                 <configuration>
                                                         <target>
                                                                 <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
-                                                                <echo>!!! official.activated: ${official.activated}</echo>
-                                                                <if>
-                                                                        <equals arg1="${official.activated}" arg2="true" />
-                                                                        <then>
                                                                                 <!-- Generate javajet -->
 										<echo>Equinox launcher: ${studio.dir}/plugins/${equinox.build}</echo>
                                                                                 <java classname="org.eclipse.core.launcher.Main" dir="${studio.dir}" fork="true" failonerror="false" maxmemory="256m" >
@@ -400,8 +396,6 @@
                                                                                 <delete dir="${studio.dir}/configuration/org.eclipse.equinox.app" includeemptydirs="true" />
                                                                                 <delete dir="${studio.dir}/configuration/org.eclipse.osgi" includeemptydirs="true" />
                                                                                 <delete dir="${studio.dir}/configuration/org.eclipse.update" includeemptydirs="true" />
-                                                                        </then>
-                                                                </if>
                                                         </target>
                                                 </configuration>
                                                 <goals>
