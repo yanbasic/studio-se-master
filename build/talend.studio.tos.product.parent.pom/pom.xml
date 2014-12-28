@@ -376,26 +376,25 @@
                                                 <configuration>
                                                         <target>
                                                                 <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
-                                                                                <!-- Generate javajet -->
-										<echo>Equinox launcher: ${studio.dir}/plugins/${equinox.build}</echo>
-                                                                                <java classname="org.eclipse.core.launcher.Main" dir="${studio.dir}" fork="true" failonerror="false" maxmemory="256m" >
-                                                                                        <arg line="-application org.talend.designer.codegen.CodeGenInit -nosplash -consoleLog" />
-                                                                                        <classpath>
-                                                                                                <pathelement location="${studio.dir}/plugins/${equinox.build}" />
-                                                                                        </classpath>
-                                                                                        <jvmarg value="-XX:MaxPermSize=256m" />
-                                                                                        <jvmarg value="-Dtalend.licence.path=${studio.dir}/license" />
-                                                                                </java>
-										<delete file="${studio.dir}/license" />
-                                                                                <delete dir="${studio.dir}/lib" includeemptydirs="true" />
-                                                                                <delete dir="${studio.dir}/temp" includeemptydirs="true" />
-                                                                                <delete dir="${studio.dir}/workspace/.Java" includeemptydirs="true" />
-                                                                                <delete dir="${studio.dir}/workspace/.Perl" includeemptydirs="true" />
-                                                                                <delete dir="${studio.dir}/workspace/.metadata" includeemptydirs="true" />
-                                                                                <delete dir="${studio.dir}/configuration/org.eclipse.core.runtime" includeemptydirs="true" />
-                                                                                <delete dir="${studio.dir}/configuration/org.eclipse.equinox.app" includeemptydirs="true" />
-                                                                                <delete dir="${studio.dir}/configuration/org.eclipse.osgi" includeemptydirs="true" />
-                                                                                <delete dir="${studio.dir}/configuration/org.eclipse.update" includeemptydirs="true" />
+                                                                <!-- Generate javajet -->
+                                                                <java classname="org.eclipse.core.launcher.Main" dir="${studio.dir}" fork="true" failonerror="false" maxmemory="256m" >
+                                                                	<arg line="-application org.talend.designer.codegen.CodeGenInit -nosplash -consoleLog" />
+                                                                	<classpath>
+                                                                        	<pathelement location="${studio.dir}/plugins/${equinox.build}" />
+                                                                	</classpath>
+                                                                	<jvmarg value="-XX:MaxPermSize=256m" />
+                                                                        <jvmarg value="-Dtalend.licence.path=${studio.dir}/license" />
+                                                                </java>
+								<delete file="${studio.dir}/license" />
+                                                                <delete dir="${studio.dir}/lib" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/temp" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/workspace/.Java" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/workspace/.Perl" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/workspace/.metadata" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/configuration/org.eclipse.core.runtime" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/configuration/org.eclipse.equinox.app" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/configuration/org.eclipse.osgi" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/configuration/org.eclipse.update" includeemptydirs="true" />
                                                         </target>
                                                 </configuration>
                                                 <goals>
