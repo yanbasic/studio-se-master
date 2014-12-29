@@ -215,7 +215,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+		<!--	<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.3.2</version>
@@ -244,7 +244,7 @@
 						<argument>-Dtalend.licence.path=${studio.dir}/license</argument>
 					</arguments>
 				</configuration>
-			</plugin>
+			</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -370,25 +370,37 @@
 						</goals>
 					</execution>
 					<execution>
-						<id>delete-eclipse-launch-generated-files</id>
-						<phase>package</phase>
-						<configuration>
-							<target>
-								<delete dir="${studio.dir}/lib" includeemptydirs="true" />
-								<delete dir="${studio.dir}/temp" includeemptydirs="true" />
-								<delete dir="${studio.dir}/workspace/.Java" includeemptydirs="true" />
-								<delete dir="${studio.dir}/workspace/.Perl" includeemptydirs="true" />
-								<delete dir="${studio.dir}/workspace/.metadata" includeemptydirs="true" />
-								<delete dir="${studio.dir}/configuration/org.eclipse.core.runtime" includeemptydirs="true" />
-								<delete dir="${studio.dir}/configuration/org.eclipse.equinox.app" includeemptydirs="true" />
-								<delete dir="${studio.dir}/configuration/org.eclipse.osgi" includeemptydirs="true" />
-								<delete dir="${studio.dir}/configuration/org.eclipse.update" includeemptydirs="true" />
-							</target>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
+                                                <!-- Generate javajet by launching product -->
+                                                <id>generate-javajet</id>
+                                                <phase>package</phase>
+                                                <configuration>
+                                                        <target>
+                                                                <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
+                                                                <!-- Generate javajet -->
+                                                                <java classname="org.eclipse.core.launcher.Main" dir="${studio.dir}" fork="true" failonerror="false" maxmemory="256m" >
+                                                                	<arg line="-application org.talend.designer.codegen.CodeGenInit -nosplash -consoleLog" />
+                                                                	<classpath>
+                                                                        	<pathelement location="${studio.dir}/plugins/${equinox.build}" />
+                                                                	</classpath>
+                                                                	<jvmarg value="-XX:MaxPermSize=256m" />
+                                                                        <jvmarg value="-Dtalend.licence.path=${studio.dir}/license" />
+                                                                </java>
+								<delete file="${studio.dir}/license" />
+                                                                <delete dir="${studio.dir}/lib" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/temp" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/workspace/.Java" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/workspace/.Perl" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/workspace/.metadata" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/configuration/org.eclipse.core.runtime" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/configuration/org.eclipse.equinox.app" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/configuration/org.eclipse.osgi" includeemptydirs="true" />
+                                                                <delete dir="${studio.dir}/configuration/org.eclipse.update" includeemptydirs="true" />
+                                                        </target>
+                                                </configuration>
+                                                <goals>
+                                                        <goal>run</goal>
+                                                </goals>
+                                        </execution>
 					<execution>
 						<!-- Create final product ZIP -->
 						<id>zip-product</id>
@@ -479,14 +491,15 @@
 							<timestampProvider>default</timestampProvider>
 						</configuration>
 					</plugin>
+					<!--
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
 						<version>1.7</version>
 						<executions>
-							<execution>
+							<execution>-->
 								<!-- Attach product ZIP to Maven artifact -->
-								<id>attach-artifacts</id>
+							<!--	<id>attach-artifacts</id>
 								<phase>package</phase>
 								<goals>
 									<goal>attach-artifact</goal>
@@ -501,7 +514,7 @@
 								</configuration>
 							</execution>
 						</executions>
-					</plugin>
+					</plugin>-->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>

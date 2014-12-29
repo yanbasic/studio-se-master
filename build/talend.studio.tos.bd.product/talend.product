@@ -12,7 +12,5 @@
 
    <features>
       <feature id="org.talend.rcp.branding.tos.bigdata-feature"/>
-      <feature id="org.eclipse.babel.nls_eclipse" />
-      <feature id="org.eclipse.babel.nls_tools.gef" />
    </features>
 </product>

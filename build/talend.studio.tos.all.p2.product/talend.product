@@ -16,7 +16,5 @@
 	  <feature id="org.talend.rcp.branding.top-feature"/>
 	  <feature id="org.talend.rcp.branding.esbstandard-feature"/>
 	  <feature id="org.talend.rcp.branding.tombundle-feature"/>
-      <feature id="org.eclipse.babel.nls_eclipse" />
-      <feature id="org.eclipse.babel.nls_tools.gef" />
    </features>
 </product>
