@@ -11,6 +11,6 @@
    </configIni>
 
    <features>
-      <feature id="org.talend.rcp.branding.top-feature"/>
+      <feature id="org.talend.rcp.branding.top.feature"/>
    </features>
 </product>

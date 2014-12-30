@@ -11,6 +11,6 @@
    </configIni>
 
    <features>
-      <feature id="org.talend.rcp.branding.tos.bigdata-feature"/>
+      <feature id="org.talend.rcp.branding.tos.bigdata.feature"/>
    </features>
 </product>
