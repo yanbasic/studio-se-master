@@ -1,0 +1,35 @@
+<project name="proj" default="do">
+	<path id="project.classpath">
+	</path>
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+	<taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="project.classpath" />
+	<property name="buildRoot" value="../../.." />
+	<target name="do">
+		<dirname property="proj.basedir" file="${ant.file.proj}" />
+		<delete file="build_renamed.log" />
+		<for param="repo" list="jobserver,tac,tamc-ee,tbd-studio-ee,tbd-studio-se,tbpm-studio-ee,tcommon-studio-ee,tcommon-studio-se,tdi-studio-ee,tdi-studio-se,tdq-studio-ee,tdq-studio-se,tesb-studio-ee,tesb-studio-se,tmdm-common,tmdm-studio-ee,tmdm-studio-se,toem-studio-ee,toem-studio-se">
+			<sequential>
+				<echo file="build_renamed.log" append="true">@{repo}${line.separator}--------------------${line.separator}</echo>
+				<foreach target="renameFeatureDir" param="dir">
+					<path>  
+						<dirset dir="${proj.basedir}/${buildRoot}/@{repo}" includes="**/org.talend.*-feature,**/org.talend.*_feature" />
+					</path> 
+				</foreach>
+				<echo file="build_renamed.log" append="true">${line.separator}${line.separator}</echo>
+			</sequential>
+		</for>
+	</target>
+	<target name="renameFeatureDir">
+		<echo>${dir}</echo>
+		<var name="featureDir" unset="true" />
+		<var name="parentDir" unset="true" />
+		<var name="newFeatureDir" unset="true" />
+		<dirname property="parentDir" file="${dir}" />
+		<basename property="featureDir" file="${dir}" />
+		<echo>${featureDir}</echo>
+		<propertyregex property="newFeatureDir" regexp="(.*)[-_]feature" select="\1.feature" input="${featureDir}" override="true" />
+		<echo file="build_renamed.log" append="true">${featureDir} -> ${newFeatureDir}${line.separator}</echo>
+		<echo>Moving ${dir} to ${parentDir}/${newFeatureDir}</echo>
+		<move file="${dir}" tofile="${parentDir}/${newFeatureDir}"/>
+	</target>
+</project>
