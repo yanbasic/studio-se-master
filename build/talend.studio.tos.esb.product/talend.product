@@ -11,7 +11,7 @@
    </configIni>
 
    <features>
-      <feature id="org.talend.rcp.branding.esbstandard-feature"/>
+      <feature id="org.talend.rcp.branding.esbstandard.feature"/>
    </features>
 
 

@@ -11,6 +11,6 @@
    </configIni>
 
    <features>
-      <feature id="org.talend.rcp.branding.tombundle-feature"/>
+      <feature id="org.talend.rcp.branding.tombundle.feature"/>
    </features>
 </product>
