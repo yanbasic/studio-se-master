@@ -21,6 +21,8 @@
 		<equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
 		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot/</opensourcesnapshot-repo.url>
 		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease/</opensourcerelease-repo.url>
+		<opensourcesnapshot-p2-repo.url>${opensourcesnapshot-repo.url}/.meta/p2/</opensourcesnapshot-p2-repo.url>
+		<opensourcerelease-p2-repo.url>${opensourcesnapshot-repo.url}/.meta/p2/</opensourcerelease-p2-repo.url>
 		<jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
 		<osgi.ws>win32</osgi.ws>
 		<osgi.os>win32</osgi.os>
@@ -66,7 +68,8 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-			<url>${opensourcerelease-repo.url}</url>
+			<url>${opensourcerelease-p2-repo.url}</url>
+			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>talend_open_snapshots</id>
@@ -76,7 +79,8 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-			<url>${opensourcesnapshot-repo.url}</url>
+			<url>${opensourcesnapshot-p2-repo.url}</url>
+			<layout>p2</layout>
 		</repository>
 	</repositories>  
 
@@ -255,7 +259,7 @@
 							<jgit.ignore>
 pom.xml
 product.properties
-</jgit.ignore>
+							</jgit.ignore>
 							<jgit.dirtyWorkingTree>${jgit.dirtyWorkingTree.official}</jgit.dirtyWorkingTree>
 						</configuration>
 					</plugin>
