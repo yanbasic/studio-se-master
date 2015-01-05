@@ -15,7 +15,7 @@
 		<talend.nexus.url>http://newbuild.talend.com:8081/nexus/content/repositories</talend.nexus.url>
 		<talendtargetplatform.url>http://newbuild.talend.com/targetplatform</talendtargetplatform.url>
 		<talendtargetplatformversion.url>${talendtargetplatform.url}/${base.version}</talendtargetplatformversion.url>
-		<talend-repo.url>${talendtargetplatformversion.url}/main/</talend-repo.url>
+		<eclipse-repo.url>${talendtargetplatformversion.url}/main/</eclipse-repo.url>
 		<babel-repo.url>${talendtargetplatformversion.url}/babel/</babel-repo.url>
 		<doc-repo.url>${talendtargetplatform.url}/5.6.1/documentation/</doc-repo.url>
 		<equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
@@ -45,7 +45,7 @@
 	<repositories>
 		<repository>
 			<id>talend_repo</id>
-			<url>${talend-repo.url}</url>
+			<url>${eclipse-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
