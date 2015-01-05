@@ -19,8 +19,8 @@
 		<babel-repo.url>${talendtargetplatformversion.url}/babel/</babel-repo.url>
 		<doc-repo.url>${talendtargetplatform.url}/5.6.1/documentation/</doc-repo.url>
 		<equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
-		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot/</opensourcesnapshot-repo.url>
-		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease/</opensourcerelease-repo.url>
+		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot</opensourcesnapshot-repo.url>
+		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease</opensourcerelease-repo.url>
 		<opensourcesnapshot-p2-repo.url>${opensourcesnapshot-repo.url}/.meta/p2/</opensourcesnapshot-p2-repo.url>
 		<opensourcerelease-p2-repo.url>${opensourcesnapshot-repo.url}/.meta/p2/</opensourcerelease-p2-repo.url>
 		<jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
