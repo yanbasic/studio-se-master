@@ -1,4 +1,9 @@
-Studio-se-master
+# Studio-se-master
+http://www.talend.com
+
+![alt text](http://www.talend.com/sites/all/themes/talend_responsive/images/logo.png "Talend")
+
+> Content
 ==========
 
 Master repos using gitslave for aggregating the full Talend Studio open source repositories
@@ -69,6 +74,6 @@ See the [CONTRIBUTORS.md](./CONTRIBUTORS.md) file for details.
 
 ## License
 
-Copyright (c) 2006-2014 Talend
+Copyright (c) 2006-2015 Talend
 
-Licensed under the LPGLv3 License
+Licensed under the Apache v2 and GPLv2 License

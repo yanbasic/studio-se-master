@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="Talend Target Platform for Eclipse 4.4 definition" sequenceNumber="177">
+<?pde version="3.8"?><target name="Talend Target Platform for Eclipse 4.4 definition" sequenceNumber="178">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.7.0.v201409021051"/>
@@ -753,5 +753,10 @@
 </location>
 <location path="${project_loc:/Target Platform for Talend Studio and Luna}/included/emf_query2" type="Directory"/>
 <location path="${project_loc:/Target Platform for Talend Studio and Luna}/included/dltk/eclipse" type="Directory"/>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.m2e.sdk.feature.feature.group" version="1.5.0.20140606-0033"/>
+<unit id="org.eclipse.m2e.feature.feature.group" version="1.5.0.20140606-0033"/>
+<repository location="http://download.eclipse.org/releases/luna/"/>
+</location>
 </locations>
 </target>
