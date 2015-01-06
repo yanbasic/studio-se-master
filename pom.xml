@@ -70,6 +70,24 @@
 			</modules>
 		</profile>
 		<profile>
+			<id>build-tos</id>
+			<activation>
+				<property>
+					<name>tos.build</name>
+					<value>!false</value>
+				</property>
+			</activation>
+			<modules>
+				<module>../tbd-studio-se</module>
+				<module>../tcommon-studio-se</module>
+				<module>../tdi-studio-se</module>
+				<module>../tdq-studio-se</module>
+				<module>../tesb-studio-se</module>
+				<module>../tmdm-common</module>
+				<module>../tmdm-studio-se</module>
+			</modules>
+		</profile>
+		<profile>
 			<id>build-tos-products</id>
 			<activation>
 				<property>
@@ -87,15 +105,6 @@
 				<module>../tmdm-studio-se</module>
 				<module>build</module>
 			</modules>
-		</profile>
-		<profile>
-			<id>build-tos-products</id>
-			<activation>
-				<property>
-					<name>tos.products</name>
-					<value>false</value>
-				</property>
-			</activation>
 		</profile>
 	</profiles>
 </project>
