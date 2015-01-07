@@ -49,7 +49,7 @@
 
 	<repositories>
 		<repository>
-			<id>talend_repo</id>
+			<id>eclipse_repo</id>
 			<url>${eclipse-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
