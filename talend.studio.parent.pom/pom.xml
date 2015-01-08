@@ -64,7 +64,7 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>talend_open</id>
+			<id>talend_open_p2</id>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -75,7 +75,7 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>talend_open_snapshots</id>
+			<id>talend_open_snapshots_p2</id>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
@@ -84,6 +84,26 @@
 			</snapshots>
 			<url>${opensourcesnapshot-p2-repo.url}</url>
 			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>talend_open</id>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<url>${opensourcerelease-repo.url}</url>
+		</repository>
+		<repository>
+			<id>talend_open_snapshots</id>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>${opensourcesnapshot-repo.url}</url>
 		</repository>
 	</repositories>  
 
