@@ -1,0 +1,65 @@
+<project name="proj" default="do">
+	<path id="project.classpath">
+	</path>
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+	<taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="project.classpath" />
+	<property name="repoRootDir" value="C:/builds/studio" />
+	<property name="m2GroupDir" value="C:/Users/iwang/.m2/repository/org/talend/studio" />
+	<target name="do">
+		<delete file="./build_modules_run.log"/>
+		<delete file="./build_modules_success.log"/>
+		<delete file="./build_modules_failed.log"/>
+		<for list="jobserver/tycho-jobserver-aggregator,tac/tycho-tac-aggregator,tamc-ee,tbd-studio-ee,tbd-studio-se,tcommon-studio-ee,tcommon-studio-se,tdi-studio-ee,tdi-studio-se,tdq-studio-ee,tdq-studio-se,tesb-studio-ee,tesb-studio-se,tmdm-common,tmdm-studio-ee,tmdm-studio-se,toem-studio-ee,toem-studio-se" param="repoPomDir">
+			<sequential>
+				<echo>Repository POM @{repoPomDir}</echo>
+				<var name="pomContents" unset="true" />
+				<loadfile property="pomContents" srcFile="${repoRootDir}/@{repoPomDir}/pom.xml">
+					<filterchain>
+						<linecontains>
+							<contains value="&lt;module&gt;"/>
+						</linecontains>
+					</filterchain>
+				</loadfile>
+
+				<for list="${pomContents}" param="moduleLine" delimiter="${line.separator}">
+					<sequential>
+						<propertyregex property="modulePath" regexp="&lt;module&gt;(.*)&lt;/module&gt;" select="\1" input="@{moduleLine}" override="true" />
+						<echo>Module POM @{repoPomDir}/${modulePath}</echo>
+						<echo file="./build_modules_run.log" append="true">@{repoPomDir}/${modulePath}${line.separator}</echo>
+						<antcall target="buildModule" >
+							<param name="moduleDir" value="${repoRootDir}/@{repoPomDir}/${modulePath}"/>
+							<param name="repo" value="@{repoPomDir}"/>
+							<param name="module" value="${modulePath}"/>
+						</antcall>
+					</sequential>
+				</for>
+			</sequential>
+		</for>
+	</target>
+	<target name="buildModule">
+		<delete file="${m2GroupDir}" />
+		<var name="result" unset="true" />
+		<if>
+			<os family="windows" />
+			<then>
+				<exec executable="cmd" dir="${moduleDir}" resultproperty="result" failonerror="false">
+					<arg line="/c mvn clean package"/>
+				</exec>
+			</then>
+			<else>
+				<exec executable="mvn" dir="${moduleDir}" resultproperty="result" failonerror="false">
+					<arg line="clean package"/>
+				</exec>
+			</else>
+		</if>
+		<if>
+			<not><equals arg1="${result}" arg2="0"/></not>
+			<then>
+				<echo file="./build_modules_failed.log" append="true">${repo}/${module}${line.separator}</echo>
+			</then>
+			<else>
+				<echo file="./build_modules_success.log" append="true">${repo}/${module}${line.separator}</echo>
+			</else>
+		</if>
+	</target>
+</project>

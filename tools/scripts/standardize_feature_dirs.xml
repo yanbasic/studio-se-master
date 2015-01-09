@@ -7,7 +7,7 @@
 	<target name="do">
 		<dirname property="proj.basedir" file="${ant.file.proj}" />
 		<delete file="build_renamed.log" />
-		<for param="repo" list="jobserver,tac,tamc-ee,tbd-studio-ee,tbd-studio-se,tbpm-studio-ee,tcommon-studio-ee,tcommon-studio-se,tdi-studio-ee,tdi-studio-se,tdq-studio-ee,tdq-studio-se,tesb-studio-ee,tesb-studio-se,tmdm-common,tmdm-studio-ee,tmdm-studio-se,toem-studio-ee,toem-studio-se">
+		<for param="repo" list="tdi-studio-se">
 			<sequential>
 				<echo file="build_renamed.log" append="true">@{repo}${line.separator}--------------------${line.separator}</echo>
 				<foreach target="renameFeatureDir" param="dir">
