@@ -54,17 +54,17 @@
 				</exec>
 			</else>
 		</if>
-		<propertyregex property="normalizedPath" regexp="/" replace="_" input="${modulePath}" override="true" global="true" />
+		<propertyregex property="normalizedPath" regexp="\/" replace="_" input="${modulePath}" override="true" global="true" />
 		<if>
 			<not><equals arg1="${result}" arg2="0"/></not>
 			<then>
 				<mkdir dir="./logs/failed" />
 				<echo file="./logs/failed/build_${normalizedPath}.log">${log}</echo>
+				<echo>FAILED</echo>
 			</then>
 			<else>
 				<echo file="./build_modules_success.log" append="true">${repo}/${module}${line.separator}</echo>
-				<mkdir dir="./logs/success" />
-				<echo file="./logs/success/build_${normalizedPath}.log">${log}</echo>
+				<echo file="./logs/build_success.log" append="true">${log}</echo>
 			</else>
 		</if>
 	</target>
