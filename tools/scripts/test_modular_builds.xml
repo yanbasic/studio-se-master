@@ -9,6 +9,7 @@
 		<delete file="./build_modules_run.log"/>
 		<delete file="./build_modules_success.log"/>
 		<delete file="./build_modules_failed.log"/>
+		<delete file="./logs"/>
 		<for list="jobserver/tycho-jobserver-aggregator,tac/tycho-tac-aggregator,tamc-ee,tbd-studio-ee,tbd-studio-se,tcommon-studio-ee,tcommon-studio-se,tdi-studio-ee,tdi-studio-se,tdq-studio-ee,tdq-studio-se,tesb-studio-ee,tesb-studio-se,tmdm-common,tmdm-studio-ee,tmdm-studio-se,toem-studio-ee,toem-studio-se" param="repoPomDir">
 			<sequential>
 				<echo>Repository POM @{repoPomDir}</echo>
@@ -39,26 +40,31 @@
 	<target name="buildModule">
 		<delete file="${m2GroupDir}" />
 		<var name="result" unset="true" />
+		<var name="log" unset="true" />
 		<if>
 			<os family="windows" />
 			<then>
-				<exec executable="cmd" dir="${moduleDir}" resultproperty="result" failonerror="false">
+				<exec executable="cmd" dir="${moduleDir}" outputproperty="log" resultproperty="result" failonerror="false">
 					<arg line="/c mvn clean package"/>
 				</exec>
 			</then>
 			<else>
-				<exec executable="mvn" dir="${moduleDir}" resultproperty="result" failonerror="false">
+				<exec executable="mvn" dir="${moduleDir}" outputproperty="log" resultproperty="result" failonerror="false">
 					<arg line="clean package"/>
 				</exec>
 			</else>
 		</if>
+		<propertyregex property="normalizedPath" regexp="/" replace="_" input="${modulePath}" override="true" global="true" />
 		<if>
 			<not><equals arg1="${result}" arg2="0"/></not>
 			<then>
-				<echo file="./build_modules_failed.log" append="true">${repo}/${module}${line.separator}</echo>
+				<mkdir dir="./logs/failed" />
+				<echo file="./logs/failed/build_${normalizedPath}.log">${log}</echo>
 			</then>
 			<else>
 				<echo file="./build_modules_success.log" append="true">${repo}/${module}${line.separator}</echo>
+				<mkdir dir="./logs/success" />
+				<echo file="./logs/success/build_${normalizedPath}.log">${log}</echo>
 			</else>
 		</if>
 	</target>
