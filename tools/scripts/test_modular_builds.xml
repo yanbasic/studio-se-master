@@ -25,13 +25,18 @@
 				<for list="${pomContents}" param="moduleLine" delimiter="${line.separator}">
 					<sequential>
 						<propertyregex property="modulePath" regexp="&lt;module&gt;(.*)&lt;/module&gt;" select="\1" input="@{moduleLine}" override="true" />
-						<echo>Module POM @{repoPomDir}/${modulePath}</echo>
-						<echo file="./build_modules_run.log" append="true">@{repoPomDir}/${modulePath}${line.separator}</echo>
-						<antcall target="buildModule" >
-							<param name="moduleDir" value="${repoRootDir}/@{repoPomDir}/${modulePath}"/>
-							<param name="repo" value="@{repoPomDir}"/>
-							<param name="module" value="${modulePath}"/>
-						</antcall>
+						<if>
+							<available file="${repoRootDir}/@{repoPomDir}/${modulePath}/pom.xml" />
+							<then>
+								<echo>Module POM @{repoPomDir}/${modulePath}</echo>
+								<echo file="./build_modules_run.log" append="true">@{repoPomDir}/${modulePath}${line.separator}</echo>
+								<antcall target="buildModule" >
+									<param name="moduleDir" value="${repoRootDir}/@{repoPomDir}/${modulePath}"/>
+									<param name="repo" value="@{repoPomDir}"/>
+									<param name="module" value="${modulePath}"/>
+								</antcall>
+							</then>
+						</if>
 					</sequential>
 				</for>
 			</sequential>
@@ -39,8 +44,10 @@
 	</target>
 	<target name="buildModule">
 		<delete file="${m2GroupDir}" />
+		<echo>Deleting ${m2GroupDir}</echo>
 		<var name="result" unset="true" />
 		<var name="log" unset="true" />
+
 		<if>
 			<os family="windows" />
 			<then>
@@ -54,6 +61,7 @@
 				</exec>
 			</else>
 		</if>
+
 		<propertyregex property="normalizedPath" regexp="\/" replace="_" input="${modulePath}" override="true" global="true" />
 		<if>
 			<not><equals arg1="${result}" arg2="0"/></not>
@@ -67,5 +75,6 @@
 				<echo file="./logs/build_success.log" append="true">${log}</echo>
 			</else>
 		</if>
+
 	</target>
 </project>
