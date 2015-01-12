@@ -24,8 +24,8 @@
 		<equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
 		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot</opensourcesnapshot-repo.url>
 		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease</opensourcerelease-repo.url>
-		<opensourcesnapshot-p2-repo.url>${opensourcesnapshot-unziprepo.url}/talend-tos-p2-repo/${project.version}/talend-tos-p2-repo-${project.version}.zip-unzip/</opensourcesnapshot-p2-repo.url>
-		<opensourcerelease-p2-repo.url>${opensourcerelease-unziprepo.url}/talend-tos-p2-repo/${project.version}/talend-tos-p2-repo-${project.version}.zip-unzip/</opensourcerelease-p2-repo.url>
+		<opensourcesnapshot-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceSnapshot/org/talend/studio/talend-tos-p2-repo/${project.version}/talend-tos-p2-repo-${project.version}.zip-unzip/</opensourcesnapshot-p2-repo.url>
+		<opensourcerelease-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceRelease/org/talend/studio/talend-tos-p2-repo/${project.version}/talend-tos-p2-repo-${project.version}.zip-unzip/</opensourcerelease-p2-repo.url>
 		<jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
 		<osgi.ws>win32</osgi.ws>
 		<osgi.os>win32</osgi.os>

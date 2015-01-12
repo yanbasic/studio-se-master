@@ -8,7 +8,7 @@
 		<relativePath></relativePath>
 	</parent>
 
-	<artifactId>org.talend.studio.tos.all.p2.product</artifactId>
+	<artifactId>talend-tos-p2-repo</artifactId>
 	<packaging>eclipse-repository</packaging>
 	
 	<properties>
