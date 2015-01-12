@@ -185,7 +185,7 @@
 			</properties>
 			<repositories>
 				<repository>
-					<id>talend_open_p2</id>
+					<id>talend_open_releases_p2</id>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
