@@ -11,6 +11,7 @@
    </configIni>
 
    <features>
+      <feature id="org.talend.fragment.jars.feature"/>
       <feature id="org.talend.rcp.branding.tos.bigdata.feature"/>
 	  <feature id="org.talend.rcp.branding.tos.feature"/>
 	  <feature id="org.talend.rcp.branding.top.feature"/>
