@@ -24,8 +24,7 @@
 		<equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
 		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot</opensourcesnapshot-repo.url>
 		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease</opensourcerelease-repo.url>
-		<opensourcesnapshot-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceSnapshot/org/talend/studio/talend-tos-p2-repo/${project.version}/talend-tos-p2-repo-${project.version}.zip-unzip/</opensourcesnapshot-p2-repo.url>
-		<opensourcerelease-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceRelease/org/talend/studio/talend-tos-p2-repo/${project.version}/talend-tos-p2-repo-${project.version}.zip-unzip/</opensourcerelease-p2-repo.url>
+		<tos-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceSnapshot/org/talend/studio/talend-tos-p2-repo/${project.version}/talend-tos-p2-repo-${project.version}.zip-unzip/</tos-p2-repo.url>
 		<jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
 		<osgi.ws>win32</osgi.ws>
 		<osgi.os>win32</osgi.os>
@@ -185,25 +184,8 @@
 			</properties>
 			<repositories>
 				<repository>
-					<id>talend_open_releases_p2</id>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-					<url>${opensourcerelease-p2-repo.url}</url>
-					<layout>p2</layout>
-				</repository>
-				<repository>
-					<id>talend_open_snapshots_p2</id>
-					<releases>
-						<enabled>false</enabled>
-					</releases>
-					<snapshots>
-						<enabled>true</enabled>
-					</snapshots>
-					<url>${opensourcesnapshot-p2-repo.url}</url>
+					<id>talend_open_p2</id>
+					<url>${tos-p2-repo.url}</url>
 					<layout>p2</layout>
 				</repository>
 			</repositories>
