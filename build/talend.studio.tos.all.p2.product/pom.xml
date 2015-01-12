@@ -75,7 +75,7 @@
 					</plugin>
 					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-p2-publisher</artifactId>
+						<artifactId>tycho-p2-publisher-plugin</artifactId>
 						<version>${tycho.version}</version>
 						<executions>
 							<execution>
