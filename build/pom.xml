@@ -140,5 +140,17 @@
 				<module>talend.studio.tos.esb.product</module>
 			</modules>
 		</profile>
+		<profile>
+			<id>tos.all.p2.product</id>
+			<activation>
+				<property>
+					<name>tos.all.p2</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<modules>
+				<module>talend.studio.tos.all.p2.product</module>
+			</modules>
+		</profile>
 	</profiles>
 </project> 

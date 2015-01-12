@@ -11,8 +11,11 @@
 	<artifactId>org.talend.studio.tos.all.p2.product</artifactId>
 	<packaging>eclipse-repository</packaging>
 	
+	<properties>
+		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
+	</properties>
 
-	<!--<repositories>
+	<repositories>
 		<repository>
 			<id>talend_open</id>
 			<releases>
@@ -33,26 +36,112 @@
 			</snapshots>
 			<url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
 		</repository>
-	</repositories>-->
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-p2-repository-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<executions>
-					<execution>
-						<id>assemble-and-archive-repository</id>
-						<goals>
-							<goal>assemble-repository</goal>
-							<goal>archive-repository</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<includeAllDependencies>true</includeAllDependencies>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	</repositories>
+	<profiles>
+		<profile>
+			<id>nonofficial</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+
+			</build>
+		</profile>
+		<profile>
+			<id>official</id>
+			<properties>
+				<official.activated>true</official.activated>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<id>read-product-properties</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>${project.basedir}/product.properties</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>      
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<!-- Set property product.timestamp if not already set -->
+								<id>set-product-timestamp</id>
+								<phase>initialize</phase>
+								<configuration>
+									<exportAntProperties>true</exportAntProperties>
+									<target>
+										<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
+										<if>
+											<not><isset property="product.timestamp" /></not>
+											<then>
+												<propertyregex property="product.timestamp" input="${buildQualifier}" regexp="^([0-9_]{13})(.*)" select="\1" casesensitive="false" />
+											</then>
+										</if>
+										<echo>product.timestamp = ${product.timestamp}</echo>
+										<property name="version.full" value="${unqualifiedVersion}.${product.timestamp}${release.suffix}" />
+										<echo>version.full = ${version.full}</echo>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+							<execution>
+								<!-- Copy build to products directory -->
+								<id>move-build-to-products</id>
+								<phase>install</phase>
+								<configuration>
+									<target xmlns:ivy="antlib:org.apache.ivy.ant">
+										<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
+										<propertyregex property="product.version.short" input="${unqualifiedVersion}" regexp="\." replace="" global="true" casesensitive="false" override="true" />
+										<property name="product.build.path" value="${product.build.id}/${storage.dir}" />
+										<property name="product.dir" value="${storage}/${product.build.path}" />
+										<mkdir dir="${product.dir}" />
+										<echo>Moving product ZIP ${project.build.directory}/${project.artifactId}-${project.version}.zip to ${product.dir}</echo>
+										<move tofile="${product.dir}/${product.final.name}.zip" file="${project.build.directory}/${project.artifactId}-${project.version}.zip" />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>ant-contrib</groupId>
+								<artifactId>ant-contrib</artifactId>
+								<version>1.0b3</version>
+								<exclusions>
+									<exclusion>
+										<groupId>ant</groupId>
+										<artifactId>ant</artifactId>
+									</exclusion>
+								</exclusions>
+							</dependency>
+							<dependency>
+								<groupId>org.apache.ant</groupId>
+								<artifactId>ant-nodeps</artifactId>
+								<version>1.8.1</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project> 
