@@ -17,5 +17,6 @@
 	  <feature id="org.talend.rcp.branding.top.feature"/>
 	  <feature id="org.talend.rcp.branding.esbstandard.feature"/>
 	  <feature id="org.talend.rcp.branding.tombundle.feature"/>
+	  <feature id="org.talend.rcp.branding.tos.test.feature"/>
    </features>
 </product>

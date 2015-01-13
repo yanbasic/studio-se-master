@@ -9,8 +9,8 @@
 		<delete file="./build_modules_run.log"/>
 		<delete file="./build_modules_success.log"/>
 		<delete file="./build_modules_failed.log"/>
-		<delete file="./logs"/>
-		<for list="jobserver/tycho-jobserver-aggregator,tac/tycho-tac-aggregator,tamc-ee,tbd-studio-ee,tbd-studio-se,tcommon-studio-ee,tcommon-studio-se,tdi-studio-ee,tdi-studio-se,tdq-studio-ee,tdq-studio-se,tesb-studio-ee,tesb-studio-se,tmdm-common,tmdm-studio-ee,tmdm-studio-se,toem-studio-ee,toem-studio-se" param="repoPomDir">
+		<delete dir="./logs"/>
+		<for list="tbd-studio-ee,tbd-studio-se,tcommon-studio-ee,tcommon-studio-se,tdi-studio-ee,tdi-studio-se,tdq-studio-ee,tdq-studio-se,tesb-studio-ee,tesb-studio-se,tmdm-common,tmdm-studio-ee,tmdm-studio-se" param="repoPomDir">
 			<sequential>
 				<echo>Repository POM @{repoPomDir}</echo>
 				<var name="pomContents" unset="true" />
@@ -22,23 +22,28 @@
 					</filterchain>
 				</loadfile>
 
-				<for list="${pomContents}" param="moduleLine" delimiter="${line.separator}">
-					<sequential>
-						<propertyregex property="modulePath" regexp="&lt;module&gt;(.*)&lt;/module&gt;" select="\1" input="@{moduleLine}" override="true" />
-						<if>
-							<available file="${repoRootDir}/@{repoPomDir}/${modulePath}/pom.xml" />
-							<then>
-								<echo>Module POM @{repoPomDir}/${modulePath}</echo>
-								<echo file="./build_modules_run.log" append="true">@{repoPomDir}/${modulePath}${line.separator}</echo>
-								<antcall target="buildModule" >
-									<param name="moduleDir" value="${repoRootDir}/@{repoPomDir}/${modulePath}"/>
-									<param name="repo" value="@{repoPomDir}"/>
-									<param name="module" value="${modulePath}"/>
-								</antcall>
-							</then>
-						</if>
-					</sequential>
-				</for>
+				<if>
+					<not><contains string="@{repoPomDir}" substring=".nl" /></not>
+					<then>
+						<for list="${pomContents}" param="moduleLine" delimiter="${line.separator}">
+							<sequential>
+								<propertyregex property="modulePath" regexp="&lt;module&gt;(.*)&lt;/module&gt;" select="\1" input="@{moduleLine}" override="true" />
+								<if>
+									<available file="${repoRootDir}/@{repoPomDir}/${modulePath}/pom.xml" />
+									<then>
+										<echo>Module POM @{repoPomDir}/${modulePath}</echo>
+										<echo file="./build_modules_run.log" append="true">@{repoPomDir}/${modulePath}${line.separator}</echo>
+										<antcall target="buildModule" >
+											<param name="moduleDir" value="${repoRootDir}/@{repoPomDir}/${modulePath}"/>
+											<param name="repo" value="@{repoPomDir}"/>
+											<param name="module" value="${modulePath}"/>
+										</antcall>
+									</then>
+								</if>
+							</sequential>
+						</for>
+					</then>
+				</if>
 			</sequential>
 		</for>
 	</target>
@@ -57,17 +62,19 @@
 			</then>
 			<else>
 				<exec executable="mvn" dir="${moduleDir}" outputproperty="log" resultproperty="result" failonerror="false">
-					<arg line="clean package"/>
+					<arg line="-U clean package"/>
 				</exec>
 			</else>
 		</if>
-
-		<propertyregex property="normalizedPath" regexp="\/" replace="_" input="${modulePath}" override="true" global="true" />
+		<echo>modulePath ${modulePath}</echo>
+		<var name="moduleName" unset="true" />
+		<basename file="${modulePath}" property="moduleName" />
+		<echo>moduleName ${moduleName}</echo>
 		<if>
 			<not><equals arg1="${result}" arg2="0"/></not>
 			<then>
 				<mkdir dir="./logs/failed" />
-				<echo file="./logs/failed/build_${normalizedPath}.log">${log}</echo>
+				<echo file="./logs/failed/build_${moduleName}.log">${log}</echo>
 				<echo>FAILED</echo>
 			</then>
 			<else>
