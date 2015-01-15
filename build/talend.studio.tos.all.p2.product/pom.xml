@@ -9,6 +9,7 @@
 	</parent>
 
 	<artifactId>talend-tos-p2-repo</artifactId>
+	<version>6.0.0.M1</version>
 	<packaging>eclipse-repository</packaging>
 
 	<properties>
