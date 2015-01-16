@@ -117,8 +117,8 @@
 				<configuration>
 					<environments>
 						<environment>
-							<os>${osgi.ws}</os>
-							<ws>${osgi.os}</ws>
+							<os>${osgi.os}</os>
+							<ws>${osgi.ws}</ws>
 							<arch>${osgi.arch}</arch>
 						</environment>
 					</environments>
