@@ -49,6 +49,22 @@
 			</modules>
 		</profile>
 		<profile>
+			<id>all-tos-products</id>
+			<activation>
+				<property>
+					<name>tos.products</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<modules>
+				<module>talend.studio.tos.bd.product</module>
+				<module>talend.studio.tos.di.product</module>
+				<module>talend.studio.tos.dq.product</module>
+				<module>talend.studio.tos.mdm.product</module>
+				<module>talend.studio.tos.esb.product</module>
+			</modules>
+		</profile>
+		<profile>
 			<id>no-tos-products</id>
 			<activation>
 				<property>
