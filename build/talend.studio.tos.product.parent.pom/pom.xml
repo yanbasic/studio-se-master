@@ -37,6 +37,7 @@
 	<properties>
 		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/${osgi.ws}/${osgi.os}/${osgi.arch}</studio.dir>
+		<maven.version>${project.version}</maven.version>
 	</properties>
 
 	<build>
@@ -133,7 +134,7 @@
 								<artifactItem>
 									<groupId>${project.groupId}</groupId>
 									<artifactId>${product.branding.platform}</artifactId>
-									<version>${project.version}</version>
+									<version>${maven.version}</version>
 									<type>txt</type>
 									<classifier>license</classifier>
 									<overWrite>true</overWrite>
@@ -154,7 +155,7 @@
 								<artifactItem>
 									<groupId>${project.groupId}</groupId>
 									<artifactId>${product.branding.platform}</artifactId>
-									<version>${project.version}</version>
+									<version>${maven.version}</version>
 									<type>txt</type>
 									<classifier>notice</classifier>
 									<overWrite>true</overWrite>
