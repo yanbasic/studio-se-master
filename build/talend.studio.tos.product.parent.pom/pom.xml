@@ -38,7 +38,7 @@
 	<properties>
 		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/${osgi.ws}/${osgi.os}/${osgi.arch}</studio.dir>
-		<maven.version>${project.version}</maven.version>
+		<maven.version>6.0.0-M2</maven.version>
 	</properties>
 
 	<build>
