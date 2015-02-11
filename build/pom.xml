@@ -62,6 +62,7 @@
 				<module>talend.studio.tos.dq.product</module>
 				<module>talend.studio.tos.mdm.product</module>
 				<module>talend.studio.tos.esb.product</module>
+				<module>talend.studio.tos.all.p2.product</module>
 			</modules>
 		</profile>
 		<profile>
