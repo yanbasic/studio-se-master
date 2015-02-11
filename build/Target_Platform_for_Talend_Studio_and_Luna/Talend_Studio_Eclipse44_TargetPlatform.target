@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="Talend Target Platform for Eclipse 4.4 definition" sequenceNumber="179">
+<?pde version="3.8"?><target name="Talend Target Platform for Eclipse 4.4 definition" sequenceNumber="180">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.7.0.v201409021051"/>
@@ -762,6 +762,11 @@
 <unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="2.2.0.I20141210-114528"/>
 <unit id="net.jeeeyul.swtend.feature.feature.group" version="2.2.5.I20140918-144458"/>
 <repository location="http://eclipse.jeeeyul.net/update/"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.compare.rcp.ui.feature.group" version="3.0.1.201408191310"/>
+<unit id="org.eclipse.emf.compare.rcp.ui.source.feature.group" version="3.0.1.201408191310"/>
+<repository location="http://download.eclipse.org/modeling/emf/compare/updates/releases/3.0"/>
 </location>
 </locations>
 </target>
