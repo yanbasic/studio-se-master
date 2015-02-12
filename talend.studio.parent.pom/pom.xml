@@ -29,7 +29,6 @@
 		<osgi.ws>win32</osgi.ws>
 		<osgi.os>win32</osgi.os>
 		<osgi.arch>x86</osgi.arch>
-		<sonar.language>java</sonar.language>
 	</properties>
 
 	<distributionManagement>
