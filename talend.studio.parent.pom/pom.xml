@@ -262,7 +262,7 @@
 						</dependencies>
 						<configuration>
 							<strictBinIncludes>false</strictBinIncludes>
-							<format>yyyyMMdd'_'HHmm'${release.suffix}'</format>
+							<format>'${product.timestamp}${release.suffix}'</format>
 							<archive>
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
@@ -270,12 +270,6 @@
 									<Built-By></Built-By>
 								</manifestEntries>
 							</archive>
-							<timestampProvider>jgit</timestampProvider>
-							<jgit.ignore>
-pom.xml
-product.properties
-							</jgit.ignore>
-							<jgit.dirtyWorkingTree>${jgit.dirtyWorkingTree.official}</jgit.dirtyWorkingTree>
 						</configuration>
 					</plugin>
 					<!--<plugin>
