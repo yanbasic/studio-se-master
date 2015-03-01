@@ -38,12 +38,6 @@
 	
 	<profiles>
 		<profile>
-			<id>official</id>
-			<modules>
-				<module>../toem-studio-se</module>
-			</modules>
-		</profile>
-		<profile>
 			<id>build-tos</id>
 			<activation>
 				<property>
