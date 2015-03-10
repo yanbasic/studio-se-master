@@ -12,6 +12,6 @@
 
    <features>
       <feature id="org.talend.rcp.branding.top.feature"/>
-	  <feature id="org.talend.babel.all.tos.feature"/>
+      <!--<feature id="org.talend.babel.all.tos.feature"/>-->
    </features>
 </product>
