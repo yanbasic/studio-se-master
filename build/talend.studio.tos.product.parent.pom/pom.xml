@@ -4,12 +4,13 @@
 	<parent>
 		<groupId>org.talend.studio</groupId>
 		<artifactId>parent-pom</artifactId>
-		<version>6.0.0-SNAPSHOT</version>
+		<version>6.0.0-M3</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>tos-products-parent-pom</artifactId>
 	<packaging>pom</packaging>
+	<version>6.0.0.M3</version>
 
 	<repositories>
 		<repository>
@@ -37,7 +38,7 @@
 	<properties>
 		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/${osgi.ws}/${osgi.os}/${osgi.arch}</studio.dir>
-		<maven.version>${project.version}</maven.version>
+		<maven.version>6.0.0-M3</maven.version>
 	</properties>
 
 	<build>

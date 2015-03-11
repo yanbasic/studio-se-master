@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.talend.studio</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>6.0.0-SNAPSHOT</version>
+	<version>6.0.0-M3</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -24,7 +24,7 @@
 		<equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
 		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot</opensourcesnapshot-repo.url>
 		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease</opensourcerelease-repo.url>
-		<tos-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceSnapshot/org/talend/studio/talend-tos-p2-repo/6.0.0-SNAPSHOT/talend-tos-p2-repo-6.0.0-SNAPSHOT.zip-unzip/</tos-p2-repo.url>
+		<tos-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceRelease/org/talend/studio/talend-tos-p2-repo/6.0.0-M3/talend-tos-p2-repo-6.0.0-M3.zip-unzip/</tos-p2-repo.url>
 		<jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
 		<osgi.ws>win32</osgi.ws>
 		<osgi.os>win32</osgi.os>
@@ -98,6 +98,14 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<strictVersions>false</strictVersions>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
