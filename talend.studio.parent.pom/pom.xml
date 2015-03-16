@@ -14,6 +14,8 @@
 		<base.version>6.0.0</base.version>
 		<!-- osgi.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}.<suffix> (milestones), or ${base.version} (GA)-->
 		<osgi.version>${base.version}-SNAPSHOT</osgi.version>
+		<!-- maven.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}-<suffix> (milestones), or ${base.version} (GA)-->
+		<maven.version>${base.version}-SNAPSHOT</maven.version>
 		<repo.type>Snapshot</repo.type>
 		<talend.nexus.url>http://newbuild.talend.com:8081/nexus/content/repositories</talend.nexus.url>
 		<talend.nexus.p2unzip.url>http://newbuild.talend.com:8081/nexus/content/unzip</talend.nexus.p2unzip.url>
