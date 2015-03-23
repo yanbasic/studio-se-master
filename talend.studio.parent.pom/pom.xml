@@ -157,13 +157,13 @@
 					</environments>
 					<filters>
 						<!-- restrict version of a bundle -->
-						<filter>
+						<!--<filter>
 							<type>eclipse-plugin</type>
 							<id>org.eclipse.ui.views.properties.tabbed</id>
 							<restrictTo>
 								<version>3.6.100.v20140519-0906</version>
 							</restrictTo>
-						</filter>
+						</filter>-->
 						<filter>
 							<type>eclipse-plugin</type>
 							<id>org.eclipse.jdt.core</id>
