@@ -7,7 +7,7 @@
 		<version>6.0.0-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
-
+c
 	<artifactId>talend-tos-p2-repo</artifactId>
 	<packaging>eclipse-repository</packaging>
 
@@ -116,25 +116,6 @@
 										<echo>product.timestamp = ${product.timestamp}</echo>
 										<property name="version.full" value="${unqualifiedVersion}.${product.timestamp}${release.suffix}" />
 										<echo>version.full = ${version.full}</echo>
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-							<execution>
-								<!-- Copy build to products directory -->
-								<id>copy-build-to-products</id>
-								<phase>install</phase>
-								<configuration>
-									<target xmlns:ivy="antlib:org.apache.ivy.ant">
-										<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
-										<propertyregex property="product.version.short" input="${unqualifiedVersion}" regexp="\." replace="" global="true" casesensitive="false" override="true" />
-										<property name="product.build.path" value="${product.build.id}/${storage.dir}" />
-										<property name="product.dir" value="${storage}/${product.build.path}" />
-										<mkdir dir="${product.dir}" />
-										<echo>Copying product ZIP ${project.build.directory}/${project.artifactId}-${project.version}.zip to ${product.dir}</echo>
-										<copy tofile="${product.dir}/${product.final.name}.zip" file="${project.build.directory}/${project.artifactId}-${project.version}.zip" />
 									</target>
 								</configuration>
 								<goals>
