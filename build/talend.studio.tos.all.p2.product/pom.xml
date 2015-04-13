@@ -7,7 +7,7 @@
 		<version>6.0.0-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
-c
+
 	<artifactId>talend-tos-p2-repo</artifactId>
 	<packaging>eclipse-repository</packaging>
 
