@@ -243,8 +243,8 @@
 					<executable>java</executable>
 					<workingDirectory>${studio.dir}</workingDirectory>
 					<arguments>
-						<argument>-Xmx256m</argument>
-						<argument>-XX:MaxPermSize=256m</argument>
+						<argument>-Xmx1536m</argument>
+						<argument>-XX:MaxPermSize=512m</argument>
 						<argument>-classpath</argument>
 						<argument>${studio.dir}/plugins/${equinox.build}</argument>
 						<argument>org.eclipse.core.launcher.Main</argument>
@@ -388,12 +388,12 @@
 							<target>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
 								<!-- Generate javajet -->
-								<java classname="org.eclipse.core.launcher.Main" dir="${studio.dir}" fork="true" failonerror="false" maxmemory="256m" >
+								<java classname="org.eclipse.core.launcher.Main" dir="${studio.dir}" fork="true" failonerror="false" maxmemory="1536m" >
 									<arg line="-application org.talend.designer.codegen.CodeGenInit -nosplash -consoleLog" />
 									<classpath>
 										<pathelement location="${studio.dir}/plugins/${equinox.build}" />
 									</classpath>
-									<jvmarg value="-XX:MaxPermSize=256m" />
+									<jvmarg value="-XX:MaxPermSize=512m" />
 									<jvmarg value="-Dtalend.licence.path=${studio.dir}/license" />
 								</java>
 								<delete file="${studio.dir}/license" />
