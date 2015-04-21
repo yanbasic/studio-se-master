@@ -25,6 +25,7 @@
 		<eclipse-repo.url>${opensourcesnapshot-unziprepo.url}/talend-eclipse-p2-repo/4.4.1-SNAPSHOT/talend-eclipse-p2-repo-4.4.1-SNAPSHOT.zip-unzip</eclipse-repo.url>
 		<babel-repo.url>${opensourcesnapshot-unziprepo.url}/talend-babel-p2-repo/4.4.1-SNAPSHOT/talend-babel-p2-repo-4.4.1-SNAPSHOT.zip-unzip</babel-repo.url>
 		<doc-repo.url>${opensourcesnapshot-unziprepo.url}/talend-doc-p2-repo/6.0.0-SNAPSHOT/talend-doc-p2-repo-6.0.0-SNAPSHOT.zip-unzip/</doc-repo.url>
+		<bonita-open-repo.url>${opensourcerelease-unziprepo.url}/bonita-community-p2-repo/6.5.0/bonita-community-p2-repo-6.5.0.zip-unzip/</bonita-open-repo.url>
 		<equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
 		<opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot</opensourcesnapshot-repo.url>
 		<opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease</opensourcerelease-repo.url>
@@ -64,6 +65,11 @@
 		<repository>
 			<id>doc_repo</id>
 			<url>${doc-repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>bonita_open_repo</id>
+			<url>${bonita-open-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
@@ -150,18 +156,18 @@
 					</environments>
 					<filters>
 						<!-- restrict version of a bundle -->
-						<filter>
+						<!--<filter>
 							<type>eclipse-plugin</type>
 							<id>org.eclipse.ui.views.properties.tabbed</id>
 							<restrictTo>
-								<version>3.6.0.v20140519-0906</version>
+								<version>3.6.100.v20140519-0906</version>
 							</restrictTo>
-						</filter>
+						</filter>-->
 						<filter>
 							<type>eclipse-plugin</type>
 							<id>org.eclipse.jdt.core</id>
 							<restrictTo>
-								<version>3.10.0.v20140902-0626</version>
+								<version>3.10.0.xx-201411061335-e44-RELEASE</version>
 							</restrictTo>
 						</filter>
 
