@@ -34,6 +34,7 @@
 		<osgi.ws>win32</osgi.ws>
 		<osgi.os>win32</osgi.os>
 		<osgi.arch>x86</osgi.arch>
+		<strictVersions>true</strictVersions>
 	</properties>
 
 	<distributionManagement>
@@ -108,15 +109,14 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
-			<!-- Uncomment on release branches -->
-			<!--<plugin>
+			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-packaging-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
-					<strictVersions>false</strictVersions>
+					<strictVersions>${strictVersions}</strictVersions>
 				</configuration>
-			</plugin>-->
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
