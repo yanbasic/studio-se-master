@@ -319,5 +319,32 @@
 				</plugins>
 			</build>
 		</profile>
+        <profile>
+            <id>sign</id>
+            <build>
+                <plugins>
+                    <plugin>  
+                        <groupId>org.apache.maven.plugins</groupId>  
+                        <artifactId>maven-jarsigner-plugin</artifactId>  
+                        <version>1.4</version>  
+                        <configuration>  
+                            <keystore>file:///${keystore.path}</keystore>  
+                            <storepass>${keystore.pass}</storepass>  
+                            <alias>talend</alias>
+                            <removeExistingSignatures>true</removeExistingSignatures>
+                        </configuration>  
+                        <executions>  
+                            <execution>  
+                                <id>sign</id>  
+                                <goals>  
+                                    <goal>sign</goal>  
+                                </goals>
+                                <phase>verify</phase>
+                            </execution>  
+                        </executions>  
+                    </plugin>  
+                </plugins>
+            </build>
+        </profile>
 	</profiles>
 </project>
