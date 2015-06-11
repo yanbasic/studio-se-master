@@ -323,7 +323,57 @@
             <id>sign</id>
             <build>
                 <plugins>
-                    <plugin>  
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <id>sign</id>
+                                <phase>verify</phase>
+                                <configuration>
+                                    <target>
+                                        <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
+                                        <ac:for param="jarFile" xmlns:ac="antlib:net.sf.antcontrib">
+                                            <path>
+                                                <fileset dir="${project.basedir}/target" includes="*.jar" />
+                                            </path>
+                                            <sequential>
+                                                <echo>Signing @{jarFile}</echo>
+                                                <exec executable="/usr/java/jdk1.6.0_35/bin/jarsigner" dir="${project.basedir}/target/" failonerror="true">
+                                                    <arg line="-verbose -digestalg SHA1 -sigalg SHA1withRSA -keystore 
+                                                        ${keystore.path} -storepass ${keystore.pass} @{jarFile} talend" /> 
+                                                </exec>
+                                            </sequential>
+                                        </ac:for>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>ant-contrib</groupId>
+                                <artifactId>ant-contrib</artifactId>
+                                <version>1.0b3</version>
+                                <exclusions>
+                                    <exclusion>
+                                        <groupId>ant</groupId>
+                                        <artifactId>ant</artifactId>
+                                    </exclusion>
+                                </exclusions>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.apache.ant</groupId>
+                                <artifactId>ant-nodeps</artifactId>
+                                <version>1.8.1</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+
+                    <!--<plugin>  
                         <groupId>org.apache.maven.plugins</groupId>  
                         <artifactId>maven-jarsigner-plugin</artifactId>  
                         <version>1.4</version>  
@@ -345,7 +395,7 @@
                                 <phase>verify</phase>
                             </execution>  
                         </executions>  
-                    </plugin>  
+                    </plugin>  -->
                 </plugins>
             </build>
         </profile>
