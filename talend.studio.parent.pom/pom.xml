@@ -332,11 +332,6 @@
                             <storepass>${keystore.pass}</storepass>  
                             <alias>talend</alias>
                             <removeExistingSignatures>true</removeExistingSignatures>
-                            <arguments>
-                                <argument>-keyalg</argument><argument>RSA</argument>
-                                <argument>-sigalg</argument><argument>SHA1withRSA</argument>
-                                <argument>-digestalg</argument><argument>SHA1</argument>
-                            </arguments>
                             <includes>
                                 <include>${project.basedir}/target/*.jar</include>
                             </includes>
