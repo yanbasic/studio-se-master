@@ -303,19 +303,6 @@
                             </archive>
                         </configuration>
                     </plugin>
-                    <!--<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jarsigner-plugin</artifactId>
-						<version>1.2</version>
-						<executions>
-							<execution>
-								<id>sign</id>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>-->
                 </plugins>
             </build>
         </profile>
@@ -340,9 +327,8 @@
                                             </path>
                                             <sequential>
                                                 <echo>Signing @{jarFile}</echo>
-                                                <exec executable="/usr/java/jdk1.6.0_35/bin/jarsigner" dir="${project.basedir}/target/" failonerror="true">
-                                                    <arg line="-verbose -digestalg SHA1 -sigalg SHA1withRSA -keystore 
-                                                        ${keystore.path} -storepass ${keystore.pass} @{jarFile} talend" /> 
+                                                <exec executable="${java.home}/bin/jarsigner" dir="${project.basedir}/target/" failonerror="true">
+                                                    <arg line="-verbose -digestalg SHA1 -sigalg SHA1withRSA -keystore ${keystore.path} -storepass ${keystore.pass} @{jarFile} talend" /> 
                                                 </exec>
                                             </sequential>
                                         </ac:for>
@@ -372,30 +358,6 @@
                             </dependency>
                         </dependencies>
                     </plugin>
-
-                    <!--<plugin>  
-                        <groupId>org.apache.maven.plugins</groupId>  
-                        <artifactId>maven-jarsigner-plugin</artifactId>  
-                        <version>1.4</version>  
-                        <configuration>  
-                            <keystore>file:///${keystore.path}</keystore>  
-                            <storepass>${keystore.pass}</storepass>  
-                            <alias>talend</alias>
-                            <removeExistingSignatures>true</removeExistingSignatures>
-                            <includes>
-                                <include>${project.basedir}/target/*.jar</include>
-                            </includes>
-                        </configuration>  
-                        <executions>  
-                            <execution>  
-                                <id>sign</id>  
-                                <goals>  
-                                    <goal>sign</goal>  
-                                </goals>
-                                <phase>verify</phase>
-                            </execution>  
-                        </executions>  
-                    </plugin>  -->
                 </plugins>
             </build>
         </profile>
