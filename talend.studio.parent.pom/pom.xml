@@ -327,7 +327,7 @@
                                             </path>
                                             <sequential>
                                                 <echo>Signing @{jarFile}</echo>
-                                                <exec executable="${java.home}/bin/jarsigner" dir="${project.basedir}/target/" failonerror="true">
+                                                <exec executable="${java.home}/../../bin/jarsigner" dir="${project.basedir}/target/" failonerror="true">
                                                     <arg line="-verbose -digestalg SHA1 -sigalg SHA1withRSA -keystore ${keystore.path} -storepass ${keystore.pass} @{jarFile} talend" /> 
                                                 </exec>
                                             </sequential>
