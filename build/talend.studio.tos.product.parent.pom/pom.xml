@@ -1,11 +1,11 @@
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.talend.studio</groupId>
 		<artifactId>parent-pom</artifactId>
-		<version>6.0.0-SNAPSHOT</version>
-		<relativePath></relativePath>
+		<version>6.0.0</version>
+		<relativePath />
 	</parent>
 
 	<artifactId>tos-products-parent-pom</artifactId>
@@ -300,7 +300,7 @@
 								<echo>aboutmappingspath=${aboutmappingspath}</echo>
 								<loadfile property="about" srcFile="${aboutmappingspath}">
 									<filterchain>
-										<expandproperties/>
+										<expandproperties />
 									</filterchain>
 								</loadfile>
 								<echo file="${aboutmappingspath}">${about}</echo>
@@ -317,33 +317,32 @@
 						<configuration>
 							<target>
 								<echo>version.full=${version.full}</echo>
-								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
-								<move file="${studio.dir}/launcher-macosx-cocoa.app" tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app"/>
+								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
+								<move file="${studio.dir}/launcher-macosx-cocoa.app" tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app" />
 								<move todir="${studio.dir}">
 									<fileset dir="${studio.dir}">
 										<include name="**/Contents/MacOS/*" />
 										<include name="*" />
 									</fileset>
 									<dirset dir="${studio.dir}">
-										<include name="*"/>
+										<include name="*" />
 									</dirset>
 									<mapper>
-										<mapper type="regexp"
-											from="(.*)launcher(.*)" to="\1${launcher.prefix}\2" />
+										<mapper type="regexp" from="(.*)launcher(.*)" to="\1${launcher.prefix}\2" />
 									</mapper>
 								</move>
 								<loadfile property="launcher_sh" srcFile="${studio.dir}/${launcher.prefix}-linux-gtk-x86.sh">
 									<filterchain>
-										<expandproperties/>
+										<expandproperties />
 									</filterchain>
 								</loadfile>
 								<echo file="${studio.dir}/${launcher.prefix}-linux-gtk-x86.sh">${launcher_sh}</echo>
-								<ac:for list="linux-gtk-ppc,linux-gtk-x86,solaris-gtk,solaris-gtk-x86,win32-wpf,win32-x86" param="platform" xmlns:ac="antlib:net.sf.antcontrib">
+								<ac:for xmlns:ac="antlib:net.sf.antcontrib" list="linux-gtk-ppc,linux-gtk-x86,solaris-gtk,solaris-gtk-x86,win32-wpf,win32-x86" param="platform">
 									<sequential>
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher.ini" />
 									</sequential>
 								</ac:for>
-								<ac:for list="linux-gtk-x86_64,win-x86_64" param="platform" xmlns:ac="antlib:net.sf.antcontrib">
+								<ac:for xmlns:ac="antlib:net.sf.antcontrib" list="linux-gtk-x86_64,win-x86_64" param="platform">
 									<sequential>
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher_64.ini" />
 									</sequential>
@@ -353,7 +352,7 @@
 								<property name="launcher.info" value="${mac.launcher.info}" />
 								<loadfile property="plist" srcFile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">
 									<filterchain>
-										<expandproperties/>
+										<expandproperties />
 									</filterchain>
 								</loadfile>
 								<echo file="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">${plist}</echo>
@@ -387,9 +386,9 @@
 						<phase>package</phase>
 						<configuration>
 							<target>
-								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
+								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
 								<!-- Generate javajet -->
-								<java classname="org.eclipse.core.launcher.Main" dir="${studio.dir}" fork="true" failonerror="false" maxmemory="1536m" >
+								<java classname="org.eclipse.core.launcher.Main" dir="${studio.dir}" fork="true" failonerror="false" maxmemory="1536m">
 									<arg line="-application org.talend.designer.codegen.CodeGenInit -nosplash -consoleLog" />
 									<classpath>
 										<pathelement location="${studio.dir}/plugins/${equinox.build}" />
@@ -473,7 +472,7 @@
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
 								<manifestEntries>
-									<Built-By></Built-By>
+									<Built-By />
 								</manifestEntries>
 							</archive>
 							<timestampProvider>default</timestampProvider>
@@ -497,7 +496,7 @@
 								<addMavenDescriptor>false</addMavenDescriptor>
 								<!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
 								<manifestEntries>
-									<Built-By></Built-By>
+									<Built-By />
 								</manifestEntries>
 							</archive>
 							<timestampProvider>default</timestampProvider>
@@ -593,4 +592,4 @@
 			</build>
 		</profile>
 	</profiles>
-</project> 
+</project>
