@@ -37,7 +37,7 @@
 	<properties>
 		<talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
 		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
-		<studio.dir>${project.build.directory}/products/${project.artifactId}/${osgi.ws}/${osgi.os}/${osgi.arch}</studio.dir>
+		<studio.dir>${project.build.directory}/products/${project.artifactId}/${osgi.os}/${osgi.ws}/${osgi.arch}</studio.dir>
 	</properties>
 
 	<build>
