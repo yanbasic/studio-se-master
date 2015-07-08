@@ -256,7 +256,7 @@
             <properties>
                 <talendtargetplatform.path>${buildRootDir}/../targetplatform</talendtargetplatform.path>
                 <unqualifiedVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</unqualifiedVersion>
-                <talendtargetplatformversion.path>${talendtargetplatform.path}/${unqualifiedVersion}</talendtargetplatformversion.path>
+                <talendtargetplatformversion.path>${talendtargetplatform.path}/${product.version}</talendtargetplatformversion.path>
             </properties>
             <build>
                 <plugins>

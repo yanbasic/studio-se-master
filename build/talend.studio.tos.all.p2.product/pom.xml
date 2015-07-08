@@ -12,7 +12,7 @@
 	<packaging>eclipse-repository</packaging>
 
 	<properties>
-		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
+		<product.final.name>${launcher.prefix}-${product.timestamp}-V${product.version}${revision.filename}</product.final.name>
 	</properties>
 
 	<repositories>
@@ -114,7 +114,7 @@
 											</then>
 										</if>
 										<echo>product.timestamp = ${product.timestamp}</echo>
-										<property name="version.full" value="${unqualifiedVersion}.${product.timestamp}${release.suffix}" />
+										<property name="version.full" value="${product.version}.${product.timestamp}${release.suffix}" />
 										<echo>version.full = ${version.full}</echo>
 									</target>
 								</configuration>

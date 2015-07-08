@@ -11,7 +11,7 @@
 	<artifactId>org.talend.studio.tos.mdm.product</artifactId>
 	<packaging>eclipse-repository</packaging>
 	<properties>
-		<product.final.name>${product.final.name.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
+		<product.final.name>${product.final.name.prefix}-${product.timestamp}-V${product.version}${revision.filename}</product.final.name>
 	</properties>
 	<build>
 		<plugins>

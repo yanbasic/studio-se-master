@@ -36,7 +36,7 @@
 
 	<properties>
 		<talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
-		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
+		<product.final.name>${launcher.prefix}-${product.timestamp}-V${product.version}${revision.filename}</product.final.name>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/${osgi.os}/${osgi.ws}/${osgi.arch}</studio.dir>
 	</properties>
 
@@ -277,7 +277,7 @@
 									</then>
 								</if>
 								<echo>product.timestamp = ${product.timestamp}</echo>
-								<property name="version.full" value="${unqualifiedVersion}.${product.timestamp}${release.suffix}" />
+								<property name="version.full" value="${product.version}.${product.timestamp}${release.suffix}" />
 								<echo>version.full = ${version.full}</echo>
 							</target>
 						</configuration>
@@ -292,10 +292,10 @@
 						<configuration>
 							<target>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
-								<echo>Looking for ${studio.dir}/plugins/${product.branding.platform}_${unqualifiedVersion}*</echo>
+								<echo>Looking for ${studio.dir}/plugins/${product.branding.platform}_${product.version}*</echo>
 								<echo>product.timestamp=${product.timestamp}</echo>
 								<echo>version.full=${version.full}</echo>
-								<fileset dir="${studio.dir}/plugins" includes="${product.branding.platform}_${unqualifiedVersion}*/about.mappings" id="aboutmappingspath_temp" />
+								<fileset dir="${studio.dir}/plugins" includes="${product.branding.platform}_${product.version}*/about.mappings" id="aboutmappingspath_temp" />
 								<pathconvert property="aboutmappingspath" refid="aboutmappingspath_temp" />	
 								<echo>aboutmappingspath=${aboutmappingspath}</echo>
 								<loadfile property="about" srcFile="${aboutmappingspath}">
@@ -538,8 +538,8 @@
 								<configuration>
 									<target>
 										<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
-										<propertyregex property="product.version.short" input="${unqualifiedVersion}" regexp="\." replace="" global="true" casesensitive="false" override="true" />
-										<property name="product.build.path" value="${product.build.id}/${storage.dir}/V${unqualifiedVersion}${revision.filename}/${storage.dir}_${product.version.short}" />
+										<propertyregex property="product.version.short" input="${product.version}" regexp="\." replace="" global="true" casesensitive="false" override="true" />
+										<property name="product.build.path" value="${product.build.id}/${storage.dir}/V${product.version}${revision.filename}/${storage.dir}_${product.version.short}" />
 										<property name="product.dir" value="${storage}/${product.build.path}" />
 										<mkdir dir="${product.dir}" />
 										<echo>Moving product ZIP ${project.build.directory}/products/${product.final.name}.zip to ${product.dir}</echo>
