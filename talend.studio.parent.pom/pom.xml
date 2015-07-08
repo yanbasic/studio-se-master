@@ -10,11 +10,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <tycho.version>0.22.0</tycho.version>
         <tycho-extras.version>${tycho.version}</tycho-extras.version>
-        <base.version>6.0.0</base.version>
+        <base.version>6.1.0</base.version>
         <!-- osgi.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}.<suffix> (milestones), or ${base.version} (GA)-->
-        <osgi.version>${base.version}</osgi.version>
+        <osgi.version>${project.version}</osgi.version>
         <!-- maven.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}-<suffix> (milestones), or ${base.version} (GA)-->
-        <maven.version>${base.version}</maven.version>
+        <maven.version>${project.version}</maven.version>
         <repo.type>Snapshot</repo.type>
         <talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
         <talend.nexus.url>http://${talend.nexus.host}/nexus/content/repositories</talend.nexus.url>
