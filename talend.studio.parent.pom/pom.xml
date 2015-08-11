@@ -117,19 +117,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <id>parse-version</id>
-                        <goals>
-                            <goal>parse-version</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>tycho-maven-plugin</artifactId>
                 <version>${tycho.version}</version>
@@ -212,6 +199,7 @@
             <properties>
                 <release.suffix>-SNAPSHOT</release.suffix>
                 <revision.filename>SNAPSHOT</revision.filename>
+                <product.version>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</product.version>
             </properties>
             <repositories>
                 <repository>
@@ -223,6 +211,19 @@
             <build>
                 <plugins>
                     <plugin>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>build-helper-maven-plugin</artifactId>
+                            <version>1.8</version>
+                            <executions>
+                                <execution>
+                                    <id>parse-version</id>
+                                    <goals>
+                                        <goal>parse-version</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
                         <groupId>org.eclipse.tycho</groupId>
                         <artifactId>tycho-packaging-plugin</artifactId>
                         <version>${tycho.version}</version>
@@ -255,7 +256,6 @@
             <id>official</id>
             <properties>
                 <talendtargetplatform.path>${buildRootDir}/../targetplatform</talendtargetplatform.path>
-                <unqualifiedVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</unqualifiedVersion>
                 <talendtargetplatformversion.path>${talendtargetplatform.path}/${product.version}</talendtargetplatformversion.path>
             </properties>
             <build>
