@@ -41,6 +41,16 @@ You will find the list of repositories in root [.gitslave](../master/.gitslave) 
 
 Build The Open Source Studio
 ================
+To build the Studio you may need to increase the java memory heap size used, therefor you need to setup a specific Maven environment variable with the following values assuming you have anought ram on you machine :)
+here is how to do it on linux or mac 
+```
+export MAVEN_OPTS='-Xmx8000m -XX:MaxPermSize=512m -XX:-UseConcMarkSweepGC'
+```
+on windows
+```
+set MAVEN_OPTS=-Xmx8000m -XX:MaxPermSize=512m -XX:-UseConcMarkSweepGC
+```
+
 All the following assumes that Maven is installed on you machine.
 First if you have never built any Studio artifacts on your machine you need to build the parent pom.xml
 so please do
