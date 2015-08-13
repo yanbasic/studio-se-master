@@ -55,6 +55,16 @@ The generated executable will then be found in 2 flavours, one zip file and one 
 * The zip file may be found in *studio-se-master\build\talend.studio.tos.di.product\target\products\*
 * the unzipped ready to execute folder can be found in *studio-se-master\build\talend.studio.tos.XX.product\target\products\org.talend.studio.tos.XX.product\win32\win32\*
 
+
+If you want to only build one or any number of products you may use one or many of the following maven arguments :
+```
+-Dtos.bd=true
+-Dtos.di=true
+-Dtos.dq=true
+-Dtos.mdm=true 
+-Dtos.esb=true
+```
+
 ## Support 
 
 You can ask for help on our [Forum](http://www.talend.com/services/global-technical-support).
