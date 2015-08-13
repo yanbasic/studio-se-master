@@ -33,6 +33,11 @@ should you want to download a set of slave repositories, use
 
          gits populate <name_of_the_repos1> <name_of_the_repos2>
 
+No using Git slave
+==================
+you may setup all the git repository manually.
+The idea is to clone all the required repositories next to each other, including this one.
+You will find the list of repositories in root [.gitslave](../master/.gitslave) file for each branch
 
 Build The Open Source Studio
 ================
