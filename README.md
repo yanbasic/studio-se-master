@@ -35,9 +35,9 @@ should you want to download a set of slave repositories, use
 
 No using Git slave
 ==================
-you may setup all the git repository manually.
+You may setup all the git repositories manually.
 The idea is to clone all the required repositories next to each other, including this one.
-You will find the list of repositories in root [.gitslave](../master/.gitslave) file for each branch
+You will find the list of repositories in root [.gitslave](../master/.gitslave) file for each branch.
 
 Build The Open Source Studio
 ================
