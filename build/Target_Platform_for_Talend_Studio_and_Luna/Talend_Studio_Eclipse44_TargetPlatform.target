@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="Talend Target Platform for Eclipse 4.4 definition" sequenceNumber="182">
+<?pde version="3.8"?><target name="Talend Target Platform for Eclipse 4.4 definition" sequenceNumber="183">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.7.0.v201409021051"/>
@@ -770,5 +770,14 @@
 </location>
 <location path="${project_loc:/Target Platform for Talend Studio and Luna}/included/drools" type="Directory"/>
 <location path="${project_loc:/Target Platform for Talend Studio and Luna}/included/ops4j" type="Directory"/>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.egit.source.feature.group" version="3.4.2.201412180340-r"/>
+<unit id="org.eclipse.egit.feature.group" version="3.4.2.201412180340-r"/>
+<unit id="org.eclipse.jgit.java7.feature.group" version="3.4.2.201412180340-r"/>
+<unit id="org.eclipse.jgit.http.apache.feature.group" version="3.4.2.201412180340-r"/>
+<unit id="org.eclipse.jgit.source.feature.group" version="3.4.2.201412180340-r"/>
+<unit id="org.eclipse.jgit.feature.group" version="3.4.2.201412180340-r"/>
+<repository location="http://download.eclipse.org/releases/luna/"/>
+</location>
 </locations>
 </target>
