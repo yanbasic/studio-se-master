@@ -326,6 +326,17 @@
 							<target>
 								<echo>version.full=${version.full}</echo>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
+                                <move todir="${studio.dir}">
+									<fileset dir="${studio.dir}">
+										<include name="*" />
+									</fileset>
+									<dirset dir="${studio.dir}">
+										<include name="*" />
+									</dirset>
+									<mapper>
+										<mapper type="regexp" from="(.*)launcher(.*)" to="\1${launcher.prefix}\2" />
+									</mapper>
+								</move>
 								<loadfile property="launcher_sh" srcFile="${studio.dir}/${launcher.prefix}-linux-gtk-x86.sh">
 									<filterchain>
 										<expandproperties />
