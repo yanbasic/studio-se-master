@@ -110,6 +110,14 @@
 								<artifactItem>
 									<groupId>${project.groupId}</groupId>
 									<artifactId>eclipse-launcher-binaries</artifactId>
+									<version>4.4.1a</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${studio.dir}</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>eclipse-launcher-mac-${launcher.prefix}</artifactId>
 									<version>4.4.1</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
@@ -318,26 +326,13 @@
 							<target>
 								<echo>version.full=${version.full}</echo>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
-								<move file="${studio.dir}/launcher-macosx-cocoa.app" tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app" />
-								<move todir="${studio.dir}">
-									<fileset dir="${studio.dir}">
-										<include name="**/Contents/MacOS/*" />
-										<include name="*" />
-									</fileset>
-									<dirset dir="${studio.dir}">
-										<include name="*" />
-									</dirset>
-									<mapper>
-										<mapper type="regexp" from="(.*)launcher(.*)" to="\1${launcher.prefix}\2" />
-									</mapper>
-								</move>
 								<loadfile property="launcher_sh" srcFile="${studio.dir}/${launcher.prefix}-linux-gtk-x86.sh">
 									<filterchain>
 										<expandproperties />
 									</filterchain>
 								</loadfile>
 								<echo file="${studio.dir}/${launcher.prefix}-linux-gtk-x86.sh">${launcher_sh}</echo>
-								<ac:for xmlns:ac="antlib:net.sf.antcontrib" list="linux-gtk-ppc,linux-gtk-x86,solaris-gtk,solaris-gtk-x86,win32-wpf,win32-x86" param="platform">
+								<ac:for xmlns:ac="antlib:net.sf.antcontrib" list="linux-gtk-ppc,linux-gtk-x86,solaris-gtk,solaris-gtk-x86,win32-x86" param="platform">
 									<sequential>
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher.ini" />
 									</sequential>
@@ -347,15 +342,9 @@
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher_64.ini" />
 									</sequential>
 								</ac:for>
-								<copy tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/MacOS/${launcher.prefix}-macosx-cocoa.ini" file="${project.basedir}/launcher_macosx.ini" />
+								<copy tofile="${studio.dir}/${launcher.prefix}-macosx-cocoa.ini" file="${project.basedir}/launcher_macosx.ini" />
 								<property name="launcher.name" value="${product.name}" />
 								<property name="launcher.info" value="${mac.launcher.info}" />
-								<loadfile property="plist" srcFile="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">
-									<filterchain>
-										<expandproperties />
-									</filterchain>
-								</loadfile>
-								<echo file="${studio.dir}/${launcher.prefix}-macosx-cocoa.app/Contents/Info.plist">${plist}</echo>
 								<chmod dir="${studio.dir}" perm="755" includes="${launcher.prefix}*" verbose="true" />
 							</target>
 						</configuration>
