@@ -301,6 +301,7 @@
 							<target>
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
 								<echo>Looking for ${studio.dir}/plugins/${product.branding.platform}_${product.version}*</echo>
+                                <echo>buildQualifier=${buildQualifier}</echo>
 								<echo>product.timestamp=${product.timestamp}</echo>
 								<echo>version.full=${version.full}</echo>
 								<fileset dir="${studio.dir}/plugins" includes="${product.branding.platform}_${product.version}*/about.mappings" id="aboutmappingspath_temp" />
