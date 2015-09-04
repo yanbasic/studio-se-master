@@ -94,9 +94,10 @@
             <url>${opensourcesnapshot-repo.url}</url>
         </repository>
         <repository>
-			<id>tos-deps</id>
-			<url>${tos-deps-p2-repo.url}</url>
-		</repository>
+	    <id>tos-deps</id>
+	    <url>${tos-deps-p2-repo.url}</url>
+	    <layout>p2</layout>
+	</repository>
     </repositories>  
 
     <build>
