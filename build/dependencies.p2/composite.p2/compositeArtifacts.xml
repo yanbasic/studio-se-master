@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?compositeArtifactRepository version='1.0.0'?>
+<repository name='Talend Enterprise Composite Repository' type='org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository' version='1.0.0'>
+    <properties size='0'>
+    </properties>
+    <children size='1'>
+        <child location='http://newbuild.talend.com:8081/nexus/content/unzip/TalendP2UnzipOpenSourceSnapshot/org/talend/repo/dependency.p2.tos/6.1.0-SNAPSHOT/dependency.p2.tos-6.1.0-SNAPSHOT.zip-unzip/'/>
+    </children>
+</repository>
