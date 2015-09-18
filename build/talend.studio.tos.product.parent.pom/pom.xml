@@ -407,8 +407,8 @@
 								<delete dir="${studio.dir}/configuration/org.eclipse.equinox.app" includeemptydirs="true" />
 								<delete dir="${studio.dir}/configuration/org.eclipse.osgi" includeemptydirs="true" />
 								<delete dir="${studio.dir}/configuration/org.eclipse.update" includeemptydirs="true" />
-                                <delete dir="${studio.dir}/configuration/repository" includeemptydirs="true" />
 								<delete dir="${studio.dir}/configuration/maven_repository" includeemptydirs="true" />
+								<delete dir="${studio.dir}/configuration/.settings" includeemptydirs="true" />
                                 				<delete file="${studio.dir}/configuration/maven_user_settings.xml" />
                                 				<delete file="${studio.dir}/configuration/LibrariesIndex.xml" />
                                 				<delete file="${studio.dir}/configuration/MavenUriIndex.xml" />
