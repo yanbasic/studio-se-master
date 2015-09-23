@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.talend.repo</groupId>
         <artifactId>dependencies.p2</artifactId>
-        <version>6.1.0-SNAPSHOT</version>
+        <version>6.1.0-RC1</version>
     </parent>
 
     <artifactId>dependencies.p2.tos</artifactId>
