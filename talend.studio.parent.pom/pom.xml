@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.talend.studio</groupId>
     <artifactId>parent-pom</artifactId>
-    <version>6.0.1-SNAPSHOT</version>
+    <version>6.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -33,7 +33,7 @@
         <osgi.ws>win32</osgi.ws>
         <osgi.os>win32</osgi.os>
         <osgi.arch>x86</osgi.arch>
-        <strictVersions>true</strictVersions>
+        <strictVersions>false</strictVersions>
     </properties>
 
     <distributionManagement>
