@@ -28,5 +28,25 @@
             <artifactId>org.talend.dataquality.sampling</artifactId>
             <version>2.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.talend.components</groupId>
+            <artifactId>components-api</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.talend.components</groupId>
+            <artifactId>components-common</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.talend.components</groupId>
+            <artifactId>components-common-oauth</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.talend.components</groupId>
+            <artifactId>components-salesforce</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
