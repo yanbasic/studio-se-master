@@ -10,7 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <tycho.version>0.22.0</tycho.version>
         <tycho-extras.version>${tycho.version}</tycho-extras.version>
-        <base.version>6.0.1</base.version>
+        <base.version>6.0.2</base.version>
         <!-- osgi.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}.<suffix> (milestones), or ${base.version} (GA)-->
         <osgi.version>${base.version}-SNAPSHOT</osgi.version>
         <!-- maven.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}-<suffix> (milestones), or ${base.version} (GA)-->
