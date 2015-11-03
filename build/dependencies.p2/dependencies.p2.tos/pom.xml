@@ -24,6 +24,11 @@
         </dependency>
         <dependency>
             <groupId>org.talend.dataquality</groupId>
+            <artifactId>org.talend.dataquality.standardization</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.talend.dataquality</groupId>
             <artifactId>org.talend.dataquality.sampling</artifactId>
             <version>2.1.1</version>
         </dependency>
