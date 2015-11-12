@@ -35,22 +35,26 @@
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-api</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1.0.BUILD-SNAPSHOT</version>
+            <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-common</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1.0.BUILD-SNAPSHOT</version>
+            <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-common-oauth</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1.0.BUILD-SNAPSHOT</version>
+            <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-salesforce</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1.0.BUILD-SNAPSHOT</version>
+            <classifier>bundle</classifier>
         </dependency>
     </dependencies>
 </project>
