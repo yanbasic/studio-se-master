@@ -61,7 +61,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/p2/plugins</outputDirectory>
-<!--                            <excludeTransitive>true</excludeTransitive>-->
+                            <excludeTransitive>true</excludeTransitive>
                         </configuration>
                     </execution>
                 </executions>
