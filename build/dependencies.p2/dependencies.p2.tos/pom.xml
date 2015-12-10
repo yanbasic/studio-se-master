@@ -63,7 +63,7 @@
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-api</artifactId>
-            <version>0.2.0.RELEASE</version>
+            <version>0.2.1.RELEASE</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
