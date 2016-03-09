@@ -40,7 +40,8 @@
         <dependency>
             <groupId>org.talend.daikon</groupId>
             <artifactId>daikon</artifactId>
-            <version>0.3.0.BUILD-SNAPSHOT</version>
+            <version>0.4.0.BUILD-SNAPSHOT</version>
+            <classifier>bundle</classifier>
         </dependency>
         <!-- daikon dependencies-->
         <dependency>
@@ -121,25 +122,25 @@
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-api</artifactId>
-            <version>0.3.0.BUILD-SNAPSHOT</version>
+            <version>0.4.0.BUILD-SNAPSHOT</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-common</artifactId>
-            <version>0.3.0.BUILD-SNAPSHOT</version>
+            <version>0.4.0.BUILD-SNAPSHOT</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-common-oauth</artifactId>
-            <version>0.3.0.BUILD-SNAPSHOT</version>
+            <version>0.4.0.BUILD-SNAPSHOT</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-salesforce</artifactId>
-            <version>0.3.0.BUILD-SNAPSHOT</version>
+            <version>0.4.0.BUILD-SNAPSHOT</version>
             <classifier>bundle</classifier>
         </dependency>
         <!-- to avoid updatin the complete eclipse target platform we add these single dependencies -->
