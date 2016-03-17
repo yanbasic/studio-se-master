@@ -11,10 +11,10 @@
         <tycho.version>0.22.0</tycho.version>
         <tycho-extras.version>${tycho.version}</tycho-extras.version>
         <base.version>6.2.0</base.version>
-        <!-- osgi.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}.<suffix> (milestones), or ${base.version} (GA)-->
-        <osgi.version>${base.version}-SNAPSHOT</osgi.version>
-        <!-- maven.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}-<suffix> (milestones), or ${base.version} (GA)-->
-        <maven.version>${base.version}-SNAPSHOT</maven.version>
+        <!-- osgi.compatible.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}.<suffix> (milestones), or ${base.version} (GA)-->
+        <osgi.compatible.version>${base.version}-SNAPSHOT</osgi.compatible.version>
+        <!-- maven.compatible.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}-<suffix> (milestones), or ${base.version} (GA)-->
+        <maven.compatible.version>${base.version}-SNAPSHOT</maven.compatible.version>
         <repo.type>Snapshot</repo.type>
         <talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
         <talend.nexus.url>http://${talend.nexus.host}/nexus/content/repositories</talend.nexus.url>
@@ -28,8 +28,8 @@
         <equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
         <opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot</opensourcesnapshot-repo.url>
         <opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease</opensourcerelease-repo.url>
-        <tos-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSource${repo.type}/org/talend/studio/talend-tos-p2-repo/${osgi.version}/talend-tos-p2-repo-${osgi.version}.zip-unzip/</tos-p2-repo.url>
-        <tos-deps-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSource${repo.type}/org/talend/repo/dependencies.p2.tos/${maven.version}/dependencies.p2.tos-${maven.version}.zip-unzip/</tos-deps-p2-repo.url>
+        <tos-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSource${repo.type}/org/talend/studio/talend-tos-p2-repo/${osgi.compatible.version}/talend-tos-p2-repo-${osgi.compatible.version}.zip-unzip/</tos-p2-repo.url>
+        <tos-deps-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSource${repo.type}/org/talend/repo/dependencies.p2.tos/${maven.compatible.version}/dependencies.p2.tos-${maven.compatible.version}.zip-unzip/</tos-deps-p2-repo.url>
         <jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
         <osgi.ws>win32</osgi.ws>
         <osgi.os>win32</osgi.os>
