@@ -22,6 +22,7 @@
         <opensourcesnapshot-unziprepo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceSnapshot/org/talend/repo</opensourcesnapshot-unziprepo.url>
         <opensourcerelease-unziprepo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceRelease/org/talend/repo</opensourcerelease-unziprepo.url>
         <eclipse-repo.url>${opensourcesnapshot-unziprepo.url}/talend-eclipse-p2-repo/6.1.0-SNAPSHOT/talend-eclipse-p2-repo-6.1.0-SNAPSHOT.zip-unzip</eclipse-repo.url>
+        <eclipse-emf-repo.url>${opensourcesnapshot-unziprepo.url}/emf-compare-update/3.0.1-SNAPSHOT/emf-compare-update-3.0.1-SNAPSHOT.zip-unzip</eclipse-emf-repo.url>
         <babel-repo.url>${opensourcesnapshot-unziprepo.url}/talend-babel-p2-repo/4.4.1-SNAPSHOT/talend-babel-p2-repo-4.4.1-SNAPSHOT.zip-unzip</babel-repo.url>
         <doc-repo.url>${opensourcesnapshot-unziprepo.url}/talend-doc-p2-repo/6.2.0-SNAPSHOT/talend-doc-p2-repo-6.2.0-SNAPSHOT.zip-unzip/</doc-repo.url>
         <bonita-open-repo.url>${opensourcerelease-unziprepo.url}/bonita-community-p2-repo/6.5.0a/bonita-community-p2-repo-6.5.0a.zip-unzip/</bonita-open-repo.url>
