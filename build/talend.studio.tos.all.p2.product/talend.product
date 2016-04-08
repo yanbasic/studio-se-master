@@ -20,5 +20,6 @@
 	  <feature id="org.talend.rcp.branding.tos.test.feature"/>
 	  <feature id="org.talend.babel.all.tos.feature"/>
 	  <feature id="org.talend.test.tos.feature"/>
+	<feature id="org.talend.bigdata.se.test.feature"/>
    </features>
 </product>
