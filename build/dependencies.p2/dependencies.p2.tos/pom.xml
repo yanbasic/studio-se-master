@@ -10,6 +10,10 @@
 
     <artifactId>dependencies.p2.tos</artifactId>
     <packaging>pom</packaging>
+    <properties>
+        <components.version>0.5.0</components.version>
+        <daikon.version>0.6.0</daikon.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -40,7 +44,7 @@
         <dependency>
             <groupId>org.talend.daikon</groupId>
             <artifactId>daikon</artifactId>
-            <version>0.6.0-SNAPSHOT</version>
+            <version>${daikon.version}</version>
             <classifier>bundle</classifier>
         </dependency>
         <!-- daikon dependencies-->
@@ -129,25 +133,25 @@
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-api</artifactId>
-            <version>0.5.0-SNAPSHOT</version>
+            <version>${components.version}</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-common</artifactId>
-            <version>0.5.0-SNAPSHOT</version>
+            <version>${components.version}</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-common-oauth</artifactId>
-            <version>0.5.0-SNAPSHOT</version>
+            <version>${components.version}</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-salesforce</artifactId>
-            <version>0.5.0-SNAPSHOT</version>
+            <version>${components.version}</version>
             <classifier>bundle</classifier>
         </dependency>
         <!-- to avoid updatin the complete eclipse target platform we add these single dependencies -->
