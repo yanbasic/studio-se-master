@@ -29,10 +29,8 @@
         <equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
         <opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot</opensourcesnapshot-repo.url>
         <opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease</opensourcerelease-repo.url>
-        <tos-deps-p2-repo.url>file:///Users/sgandon/Talend/git/Talend-Studio/studio-se-master/build/dependencies.p2/dependencies.p2.tos/target/output</tos-deps-p2-repo.url>
         <tos-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSource${repo.type}/org/talend/studio/talend-tos-p2-repo/${osgi.compatible.version}/talend-tos-p2-repo-${osgi.compatible.version}.zip-unzip/</tos-p2-repo.url>
-<!--        <tos-deps-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSource${repo.type}/org/talend/repo/dependencies.p2.tos/${maven.version}/dependencies.p2.tos-${maven.version}.zip-unzip/</tos-deps-p2-repo.url>
--->
+        <tos-deps-p2-repo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSource${repo.type}/org/talend/repo/dependencies.p2.tos/${maven.compatible.version}/dependencies.p2.tos-${maven.compatible.version}.zip-unzip/</tos-deps-p2-repo.url>
         <jgit.dirtyWorkingTree.official>error</jgit.dirtyWorkingTree.official>
         <osgi.ws>win32</osgi.ws>
         <osgi.os>win32</osgi.os>
@@ -56,11 +54,6 @@
     </distributionManagement>
 
     <repositories>
-        <repository>
-            <id>tos-deps</id>
-            <url>${tos-deps-p2-repo.url}</url>
-            <layout>p2</layout>
-        </repository>
         <repository>
             <id>eclipse_repo</id>
             <url>${eclipse-repo.url}</url>
@@ -100,6 +93,11 @@
                 <enabled>true</enabled>
             </snapshots>
             <url>${opensourcesnapshot-repo.url}</url>
+        </repository>
+        <repository>
+            <id>tos-deps</id>
+            <url>${tos-deps-p2-repo.url}</url>
+            <layout>p2</layout>
         </repository>
     </repositories>  
 
@@ -210,6 +208,13 @@
                 <revision.filename>SNAPSHOT</revision.filename>
                 <product.version>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</product.version>
             </properties>
+            <repositories>
+                <repository>
+                    <id>talend_open_p2</id>
+                    <url>${tos-p2-repo.url}</url>
+                    <layout>p2</layout>
+                </repository>
+            </repositories>
             <build>
                 <plugins>
                     <plugin>
