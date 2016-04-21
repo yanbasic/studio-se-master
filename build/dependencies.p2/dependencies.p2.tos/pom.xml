@@ -124,8 +124,8 @@
         <!-- Keep version in sync with slf4j-api      -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.1</version>
+            <artifactId>org-slf4j-impl-log4j12</artifactId>
+            <version>1.7.2</version>
         </dependency>
 
         <!-- End added by TDM              -->
@@ -163,8 +163,8 @@
         </dependency>
        <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.6.1</version>
+            <artifactId>org-slf4j-api</artifactId>
+            <version>1.7.2</version>
         </dependency>
         <dependency>
             <groupId>commons-configuration</groupId>
