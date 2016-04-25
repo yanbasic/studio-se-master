@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <components.version>0.6.0-SNAPSHOT</components.version>
+        <components.version>0.7.0-SNAPSHOT</components.version>
         <daikon.version>0.7.0-SNAPSHOT</daikon.version>
     </properties>
 
