@@ -13,7 +13,7 @@
 
     <properties>
         <components.version>0.8.0</components.version>
-        <daikon.version>0.8.0</daikon.version>
+        <daikon.version>0.8.1</daikon.version>
     </properties>
 
     <dependencies>
@@ -152,13 +152,13 @@
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-salesforce</artifactId>
-            <version>${components.version}</version>
+            <version>0.8.1</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-splunk</artifactId>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
