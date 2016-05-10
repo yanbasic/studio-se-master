@@ -12,8 +12,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <components.version>0.8.2</components.version>
-        <daikon.version>0.8.1</daikon.version>
+        <components.version>0.8.3</components.version>
+        <daikon.version>0.8.2</daikon.version>
     </properties>
 
     <dependencies>
@@ -157,14 +157,20 @@
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
+            <artifactId>components-dataprep</artifactId>
+            <version>${components.version}</version>
+            <classifier>bundle</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.talend.components</groupId>
             <artifactId>components-splunk</artifactId>
-            <version>0.1.2</version>
+            <version>0.1.3</version>
             <classifier>bundle</classifier>
         </dependency>
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-jira</artifactId>
-            <version>0.1.2</version>
+            <version>0.1.3</version>
             <classifier>bundle</classifier>
         </dependency>
         <!-- to avoid updatin the complete eclipse target platform we add these single dependencies -->
