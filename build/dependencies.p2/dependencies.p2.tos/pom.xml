@@ -140,6 +140,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.talend.components</groupId>
+			<artifactId>components-api-service</artifactId>
+			<version>${components.version}</version>
+			<classifier>bundle</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.talend.components</groupId>
 			<artifactId>components-common</artifactId>
 			<version>${components.version}</version>
 			<classifier>bundle</classifier>
