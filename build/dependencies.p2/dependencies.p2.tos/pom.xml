@@ -182,6 +182,11 @@
 		</dependency>
 		<!-- to avoid updatin the complete eclipse target platform we add these 
 			single dependencies -->
+        <dependency>
+            <groupId>biz.aQute.bnd</groupId>
+            <artifactId>annotation</artifactId>
+            <version>2.4.0</version>
+        </dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
