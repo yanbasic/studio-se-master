@@ -13,8 +13,8 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<components.version>0.12.0-SNAPSHOT</components.version>
-		<daikon.version>0.11.0-SNAPSHOT</daikon.version>
+		<components.version>0.13.0-SNAPSHOT</components.version>
+		<daikon.version>0.12.0-SNAPSHOT</daikon.version>
 	</properties>
 
 	<dependencies>
@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>com.cedarsoftware</groupId>
 			<artifactId>json-io</artifactId>
-			<version>4.4.0</version>
+			<version>4.4.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
