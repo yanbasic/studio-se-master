@@ -13,8 +13,8 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<components.version>0.13.0-SNAPSHOT</components.version>
-		<daikon.version>0.12.0-SNAPSHOT</daikon.version>
+		<components.version>0.13.0</components.version>
+		<daikon.version>0.12.0</daikon.version>
 	</properties>
 
 	<dependencies>
