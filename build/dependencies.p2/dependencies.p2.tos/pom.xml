@@ -164,7 +164,7 @@
 		<dependency>
 			<groupId>org.talend.components</groupId>
 			<artifactId>components-dataprep</artifactId>
-			<version>${components.version}</version>
+			<version>0.13.2</version>
 			<classifier>bundle</classifier>
 		</dependency>
 		<dependency>
