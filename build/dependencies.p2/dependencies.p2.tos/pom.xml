@@ -158,13 +158,13 @@
 		<dependency>
 			<groupId>org.talend.components</groupId>
 			<artifactId>components-salesforce</artifactId>
-			<version>${components.version}</version>
+			<version>0.13.2</version>
 			<classifier>bundle</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.talend.components</groupId>
 			<artifactId>components-dataprep</artifactId>
-			<version>0.13.2</version>
+			<version>0.13.3</version>
 			<classifier>bundle</classifier>
 		</dependency>
 		<dependency>
