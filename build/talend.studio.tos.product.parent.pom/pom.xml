@@ -179,7 +179,7 @@
 									<classifier>notice</classifier>
 									<overWrite>true</overWrite>
 									<outputDirectory>${studio.dir}</outputDirectory>
-									<destFileName>notice.txt</destFileName>
+									<destFileName>NOTICE.txt</destFileName>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
