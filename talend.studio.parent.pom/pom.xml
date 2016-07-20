@@ -253,6 +253,48 @@
             </build>
         </profile>
         <profile>
+            <id>junit.product</id>
+            <properties>
+                <release.suffix>-SNAPSHOT</release.suffix>
+                <revision.filename>SNAPSHOT</revision.filename>
+                <product.version>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</product.version>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <id>parse-version</id>
+                                <goals>
+                                    <goal>parse-version</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.eclipse.tycho</groupId>
+                        <artifactId>tycho-packaging-plugin</artifactId>
+                        <version>${tycho.version}</version>
+                        <configuration>
+                            <strictBinIncludes>false</strictBinIncludes>
+                            <format>yyyyMMdd'_'HHmm'${release.suffix}'</format>
+                            <archive>
+                                <addMavenDescriptor>false</addMavenDescriptor>
+                                <!-- By default, name of the current user is inserted into generated MANIFEST.MF files -->
+                                <manifestEntries>
+                                    <Built-By />
+                                </manifestEntries>
+                            </archive>
+                            <timestampProvider>default</timestampProvider>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>tuj</id>
             <properties>
                 <release.suffix>-SNAPSHOT</release.suffix>
