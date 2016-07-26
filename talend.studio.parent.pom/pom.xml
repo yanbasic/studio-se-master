@@ -25,7 +25,7 @@
         <eclipse-emf-repo.url>${opensourcesnapshot-unziprepo.url}/emf-compare-update/3.0.1-SNAPSHOT/emf-compare-update-3.0.1-SNAPSHOT.zip-unzip</eclipse-emf-repo.url>
         <babel-repo.url>${opensourcesnapshot-unziprepo.url}/talend-babel-p2-repo/4.4.1-SNAPSHOT/talend-babel-p2-repo-4.4.1-SNAPSHOT.zip-unzip</babel-repo.url>
         <doc-repo.url>${opensourcesnapshot-unziprepo.url}/talend-doc-p2-repo/6.2.1-SNAPSHOT/talend-doc-p2-repo-6.2.1-SNAPSHOT.zip-unzip/</doc-repo.url>
-        <bonita-open-repo.url>${opensourcerelease-unziprepo.url}/bonita-community-p2-repo/6.5.0a/bonita-community-p2-repo-6.5.0a.zip-unzip/</bonita-open-repo.url>
+        <bonita-open-repo.url>${opensourcerelease-unziprepo.url}/bonita-community-p2-repo/7.2.3/bonita-community-p2-repo-7.2.3.zip-unzip/</bonita-open-repo.url>
         <equinox.build>org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar</equinox.build>
         <opensourcesnapshot-repo.url>${talend.nexus.url}/TalendOpenSourceSnapshot</opensourcesnapshot-repo.url>
         <opensourcerelease-repo.url>${talend.nexus.url}/TalendOpenSourceRelease</opensourcerelease-repo.url>
