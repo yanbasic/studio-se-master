@@ -344,7 +344,7 @@
 									</filterchain>
 								</loadfile>
 								<echo file="${studio.dir}/${launcher.prefix}-linux-gtk-x86.sh">${launcher_sh}</echo>
-								<ac:for xmlns:ac="antlib:net.sf.antcontrib" list="linux-gtk-ppc,linux-gtk-x86,solaris-gtk,solaris-gtk-x86,win32-x86" param="platform">
+								<ac:for xmlns:ac="antlib:net.sf.antcontrib" list="linux-gtk-ppc,linux-gtk-x86,solaris-gtk-sparc,solaris-gtk-x86,win32-x86" param="platform">
 									<sequential>
 										<copy tofile="${studio.dir}/${launcher.prefix}-@{platform}.ini" file="${project.basedir}/launcher.ini" />
 									</sequential>
