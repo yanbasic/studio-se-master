@@ -12,9 +12,9 @@
         <tycho-extras.version>${tycho.version}</tycho-extras.version>
         <base.version>6.1.2</base.version>
         <!-- osgi.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}.<suffix> (milestones), or ${base.version} (GA)-->
-        <osgi.version>${base.version}-SNAPSHOT</osgi.version>
+        <osgi.version>6.1.2</osgi.version>
         <!-- maven.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}-<suffix> (milestones), or ${base.version} (GA)-->
-        <maven.version>${base.version}-SNAPSHOT</maven.version>
+        <maven.version>6.1.2</maven.version>
         <repo.type>Release</repo.type>
         <talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
         <talend.nexus.url>http://${talend.nexus.host}/nexus/content/repositories</talend.nexus.url>
