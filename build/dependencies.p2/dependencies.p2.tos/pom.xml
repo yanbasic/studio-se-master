@@ -139,9 +139,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.talend.components</groupId>
-			<artifactId>components-api-service</artifactId>
+			<artifactId>components-api-service-osgi</artifactId>
 			<version>${components.version}</version>
-			<classifier>bundle</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.talend.components</groupId>
