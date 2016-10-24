@@ -54,17 +54,8 @@
 				<module>../tmdm-studio-se</module>
 			</modules>
 		</profile>
-		<profile>
-			<id>build-tos-products</id>
-			<activation>
-				<property>
-					<name>tos.products</name>
-					<value>!false</value>
-				</property>
-			</activation>
-			<modules>
-				<module>build</module>
-			</modules>
-		</profile>
 	</profiles>
+	<modules>
+		<module>build</module>
+	</modules>
 </project>
