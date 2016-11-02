@@ -118,7 +118,7 @@
 								<artifactItem>
 									<groupId>${project.groupId}</groupId>
 									<artifactId>eclipse-launcher-mac-${launcher.prefix}</artifactId>
-									<version>${base.version}</version>
+									<version>6.3.0</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 									<outputDirectory>${studio.dir}</outputDirectory>
