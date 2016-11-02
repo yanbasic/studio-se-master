@@ -7,17 +7,20 @@
     <artifactId>dependencies.p2</artifactId>
     <version>6.3.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <properties>
+        <talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
+    </properties>
 
     <distributionManagement>
         <snapshotRepository>
             <id>talend_nexus_deployment</id>
-            <url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
+            <url>http://${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
             <snapshots><enabled>true</enabled></snapshots>
             <releases><enabled>false</enabled></releases>
         </snapshotRepository>
         <repository>
             <id>talend_nexus_deployment</id>
-            <url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceRelease/</url>
+            <url>http://${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceRelease/</url>
             <snapshots><enabled>false</enabled></snapshots>
             <releases><enabled>true</enabled></releases>
         </repository>
