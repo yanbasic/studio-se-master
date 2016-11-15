@@ -29,6 +29,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.talend.dataquality</groupId>
+			<artifactId>dataquality-statistics</artifactId>
+			<version>1.5.5-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.talend.dataquality</groupId>
 			<artifactId>dataquality-record-linkage</artifactId>
 			<version>3.2.5-SNAPSHOT</version>
 		</dependency>
