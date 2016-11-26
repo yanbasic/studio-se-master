@@ -64,12 +64,7 @@
 			<classifier>bundle</classifier>
 		</dependency>
 		<!-- daikon dependencies -->
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.9.4</version><!-- version matches the studio org.talend.libraries.elasticsearch -->
-        </dependency>
- 		<dependency>
+		<dependency>
 			<groupId>com.cedarsoftware</groupId>
 			<artifactId>json-io</artifactId>
 			<version>4.5.0</version>
