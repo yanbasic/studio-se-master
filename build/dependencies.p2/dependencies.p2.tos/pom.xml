@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>org.talend.dataquality</groupId>
 			<artifactId>dataquality-common</artifactId>
-			<version>1.5.5-SNAPSHOT</version>
+			<version>1.5.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.talend.dataquality</groupId>
@@ -35,27 +35,27 @@
 		<dependency>
 			<groupId>org.talend.dataquality</groupId>
 			<artifactId>dataquality-semantic</artifactId>
-			<version>1.5.5-SNAPSHOT</version>
+			<version>1.5.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.talend.dataquality</groupId>
 			<artifactId>dataquality-statistics</artifactId>
-			<version>1.5.5-SNAPSHOT</version>
+			<version>1.5.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.talend.dataquality</groupId>
 			<artifactId>dataquality-record-linkage</artifactId>
-			<version>3.2.5-SNAPSHOT</version>
+			<version>3.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.talend.dataquality</groupId>
 			<artifactId>dataquality-standardization</artifactId>
-			<version>3.2.5-SNAPSHOT</version>
+			<version>3.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.talend.dataquality</groupId>
 			<artifactId>dataquality-sampling</artifactId>
-			<version>2.3.5-SNAPSHOT</version>
+			<version>2.3.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.talend.daikon</groupId>
