@@ -12,8 +12,8 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<components.version>0.16.0</components.version>
-		<daikon.version>0.14.0</daikon.version>
+		<components.version>0.17.0-SNAPSHOT</components.version>
+		<daikon.version>0.15.0-SNAPSHOT</daikon.version>
 	</properties>
 
 	<dependencies>
