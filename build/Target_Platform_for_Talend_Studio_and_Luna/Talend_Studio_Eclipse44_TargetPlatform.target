@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="Talend Target Platform for Eclipse 4.4 definition" sequenceNumber="198">
+<?pde version="3.8"?><target name="Talend Target Platform for Eclipse 4.4 definition" sequenceNumber="200">
 <locations>
 <location path="${project_loc:/Target Platform for Talend Studio and Luna}/included/emf_query2" type="Directory"/>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
@@ -152,16 +152,6 @@
 <unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="2.2.0.I20141210-114528"/>
 <unit id="net.jeeeyul.swtend.feature.feature.group" version="2.2.5.I20140918-144458"/>
 <repository location="http://eclipse.jeeeyul.net/update/"/>
-</location>
-<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.egit.source.feature.group" version="4.6.0.201612231935-r"/>
-<unit id="org.eclipse.egit.feature.group" version="4.6.0.201612231935-r"/>
-<unit id="org.eclipse.jgit.java7.feature.group" version="4.6.0.201612231935-r"/>
-<unit id="org.eclipse.jgit.http.apache.feature.group" version="4.6.0.201612231935-r"/>
-<unit id="org.eclipse.jgit.source.feature.group" version="4.6.0.201612231935-r"/>
-<unit id="org.eclipse.jgit.feature.group" version="4.6.0.201612231935-r"/>
-<unit id="org.eclipse.jgit.lfs.feature.group" version="4.6.0.201612231935-r"/>
-<repository location="http://download.eclipse.org/egit/updates-4.6/"/>
 </location>
 <location path="${project_loc:/Target Platform for Talend Studio and Luna}/included/drools" type="Directory"/>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
@@ -1284,7 +1274,19 @@
 <repository location="http://download.eclipse.org/nebula/releases/1.0.0"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.incubation.feature.feature.group" version="1.0.0.201607202302"/>
+<unit id="org.eclipse.jgit.lfs.feature.group" version="4.6.0.201612231935-r"/>
+<unit id="org.eclipse.jgit.pgm.source.feature.group" version="4.6.0.201612231935-r"/>
+<unit id="org.eclipse.egit.mylyn.feature.group" version="4.6.0.201612231935-r"/>
+<unit id="org.eclipse.egit.source.feature.group" version="4.6.0.201612231935-r"/>
+<unit id="org.eclipse.jgit.pgm.feature.group" version="4.6.0.201612231935-r"/>
+<unit id="org.eclipse.egit.feature.group" version="4.6.0.201612231935-r"/>
+<unit id="org.eclipse.jgit.feature.group" version="4.6.0.201612231935-r"/>
+<unit id="org.eclipse.jgit.source.feature.group" version="4.6.0.201612231935-r"/>
+<unit id="org.eclipse.jgit.http.apache.feature.group" version="4.6.0.201612231935-r"/>
+<repository location="http://download.eclipse.org/egit/updates-4.6/"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.nebula.incubation.feature.feature.group" version="1.0.0.201701041652"/>
 <repository location="http://download.eclipse.org/nebula/incubation/snapshot"/>
 </location>
 </locations>
