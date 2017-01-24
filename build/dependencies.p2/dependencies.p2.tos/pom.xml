@@ -193,12 +193,18 @@
 			<version>${components.version}</version>
 			<classifier>bundle</classifier>
 		</dependency>
-        <dependency>
-            <groupId>org.talend.components</groupId>
-            <artifactId>components-datastewardship</artifactId>
-            <version>${components.version}</version>
-            <classifier>bundle</classifier>
-        </dependency>		
+    <dependency>
+        <groupId>org.talend.components</groupId>
+        <artifactId>components-datastewardship</artifactId>
+        <version>${components.version}</version>
+        <classifier>bundle</classifier>
+    </dependency>
+    <dependency>
+			<groupId>org.talend.components</groupId>
+			<artifactId>components-snowflake</artifactId>
+			<version>${components.version}</version>
+			<classifier>bundle</classifier>
+		</dependency>		
 		<!-- to avoid updatin the complete eclipse target platform we add these 
 			single dependencies -->
         <dependency>
