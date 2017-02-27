@@ -20,7 +20,7 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-			<url>http://${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceRelease/</url>
+			<url>${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceRelease/</url>
 		</repository>
 		<repository>
 			<id>talend_open_snapshots</id>
@@ -30,12 +30,12 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-			<url>http://${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
+			<url>${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
 		</repository>
 	</repositories>
 
 	<properties>
-		<talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
+		<talend.nexus.host>https://artifacts-oss.talend.com</talend.nexus.host>
 		<product.final.name>${launcher.prefix}-${product.timestamp}-V${unqualifiedVersion}${revision.filename}</product.final.name>
 		<studio.dir>${project.build.directory}/products/${project.artifactId}/${osgi.os}/${osgi.ws}/${osgi.arch}</studio.dir>
 	</properties>
