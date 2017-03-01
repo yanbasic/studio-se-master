@@ -16,9 +16,9 @@
         <!-- maven.version is either ${base.version}-SNAPSHOT (snapshots), ${base.version}-<suffix> (milestones), or ${base.version} (GA)-->
         <maven.version>6.1.0-M2</maven.version>
         <repo.type>Release</repo.type>
-        <talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
-        <talend.nexus.url>http://${talend.nexus.host}/nexus/content/repositories</talend.nexus.url>
-        <talend.nexus.p2unzip.url>http://${talend.nexus.host}/nexus/content/unzip</talend.nexus.p2unzip.url>
+        <talend.nexus.host>https://artifacts-oss.talend.com</talend.nexus.host>
+        <talend.nexus.url>${talend.nexus.host}/nexus/content/repositories</talend.nexus.url>
+        <talend.nexus.p2unzip.url>${talend.nexus.host}/nexus/content/unzip</talend.nexus.p2unzip.url>
         <opensourcesnapshot-unziprepo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceSnapshot/org/talend/repo</opensourcesnapshot-unziprepo.url>
         <opensourcerelease-unziprepo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceRelease/org/talend/repo</opensourcerelease-unziprepo.url>
         <eclipse-repo.url>${opensourcesnapshot-unziprepo.url}/talend-eclipse-p2-repo/6.1.0-SNAPSHOT/talend-eclipse-p2-repo-6.1.0-SNAPSHOT.zip-unzip</eclipse-repo.url>
