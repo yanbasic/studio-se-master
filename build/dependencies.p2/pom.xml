@@ -8,19 +8,19 @@
     <version>6.3.1</version>
     <packaging>pom</packaging>
     <properties>
-        <talend.nexus.host>newbuild.talend.com:8081</talend.nexus.host>
+        <talend.nexus.host>https://artifacts-oss.talend.com</talend.nexus.host>
     </properties>
 
     <distributionManagement>
         <snapshotRepository>
             <id>talend_nexus_deployment</id>
-            <url>http://${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
+            <url>${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
             <snapshots><enabled>true</enabled></snapshots>
             <releases><enabled>false</enabled></releases>
         </snapshotRepository>
         <repository>
             <id>talend_nexus_deployment</id>
-            <url>http://${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceRelease/</url>
+            <url>${talend.nexus.host}/nexus/content/repositories/TalendOpenSourceRelease/</url>
             <snapshots><enabled>false</enabled></snapshots>
             <releases><enabled>true</enabled></releases>
         </repository>
@@ -35,7 +35,7 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceRelease/</url>
+            <url>https://artifacts-oss.talend.com/nexus/content/repositories/TalendOpenSourceRelease/</url>
         </repository>
         <repository>
             <id>talend_open_snapshots</id>
@@ -45,7 +45,7 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <url>http://newbuild.talend.com:8081/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
+            <url>https://artifacts-oss.talend.com/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
         </repository>
     </repositories>
 
