@@ -12,8 +12,8 @@
 		<tycho.version>0.22.0</tycho.version>
 		<tycho-extras.version>0.22.0</tycho-extras.version>
 		<base.version>6.0.0</base.version>
-		<talend.nexus.url>http://newbuild.talend.com:8081/nexus/content/repositories</talend.nexus.url>
-		<talend.nexus.p2unzip.url>http://newbuild.talend.com:8081/nexus/content/unzip</talend.nexus.p2unzip.url>
+		<talend.nexus.url>https://artifacts-zl.talend.com/nexus/content/repositories</talend.nexus.url>
+		<talend.nexus.p2unzip.url>https://artifacts-zl.talend.com/nexus/content/unzip</talend.nexus.p2unzip.url>
 		<talendtargetplatform.url>http://newbuild.talend.com/targetplatform</talendtargetplatform.url>
 		<talendtargetplatformversion.url>${talendtargetplatform.url}/${base.version}</talendtargetplatformversion.url>
 		<opensourcesnapshot-unziprepo.url>${talend.nexus.p2unzip.url}/TalendP2UnzipOpenSourceSnapshot/org/talend/repo</opensourcesnapshot-unziprepo.url>
