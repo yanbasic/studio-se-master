@@ -12,8 +12,8 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<components.version>0.16.0</components.version>
-		<daikon.version>0.14.0</daikon.version>
+		<components.version>0.16.1-SNAPSHOT</components.version>
+		<daikon.version>0.14.1-SNAPSHOT</daikon.version>
 	</properties>
 
 	<dependencies>
@@ -196,7 +196,7 @@
         <dependency>
             <groupId>org.talend.components</groupId>
             <artifactId>components-datastewardship</artifactId>
-            <version>0.16.1</version>
+            <version>0.16.2-SNAPSHOT</version>
             <classifier>bundle</classifier>
         </dependency>		
 		<!-- to avoid updatin the complete eclipse target platform we add these 
