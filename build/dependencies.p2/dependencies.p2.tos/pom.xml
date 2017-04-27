@@ -213,7 +213,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.talend.components</groupId>
-			<artifactId>netsuite-definition</artifactId>
+			<artifactId>components-netsuite-definition</artifactId>
 			<version>${components.version}</version>
 			<classifier>bundle</classifier>
 		</dependency>
